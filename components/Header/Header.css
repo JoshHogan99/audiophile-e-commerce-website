@@ -1,0 +1,11 @@
+header,
+header a{
+    display: flex;
+}
+
+header{
+    padding: 2rem 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.104);
+}

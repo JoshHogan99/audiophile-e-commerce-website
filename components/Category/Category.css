@@ -1,0 +1,54 @@
+.category{
+    padding: 5.5rem 0 1.375rem;
+    position: relative;
+    border-radius: 8px;
+    background: #F1F1F1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category .category-img{
+    position: absolute;
+    top: -27.5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.category .headphones{
+    width: 120px;
+}
+
+.category .speakers{
+    width: 140px;
+}
+
+.category .earphones{
+    width: 160px;
+}
+
+.category-name{
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 1.071px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.category-shop{
+    font-size: 0.8125rem;
+    text-decoration: none;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.category-shop-text{
+    color: #000;
+    font-weight: 700;
+    letter-spacing: 1px;
+    opacity: 0.5;
+}
+
+span{
+    margin-top: 0.05rem;
+}

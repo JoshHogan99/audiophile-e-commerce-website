@@ -1,0 +1,11 @@
+.products-container{
+    overflow: hidden;
+}
+
+.products-banner h1{
+    text-transform: uppercase;
+}
+
+.product-img{
+    width: 327px;
+}
