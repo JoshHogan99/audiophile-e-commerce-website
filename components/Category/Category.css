@@ -8,23 +8,26 @@
     align-items: center;
 }
 
+.category-container{
+    padding: 5.75rem 1.5rem 7.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4.25rem;
+}
+
 .category .category-img{
     position: absolute;
-    top: -27.5%;
+    top: -20%;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.category .headphones{
-    width: 120px;
-}
-
-.category .speakers{
+.category-img{
     width: 140px;
 }
 
 .category .earphones{
-    width: 160px;
+    top: -10%;
 }
 
 .category-name{

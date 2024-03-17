@@ -1,0 +1,9 @@
+.see-product-btn{
+    width: 160px;
+    height: 48px;
+    flex-shrink: 0;
+    font-family: Manrope;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}

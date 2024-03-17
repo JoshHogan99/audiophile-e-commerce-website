@@ -1,17 +1,18 @@
 import React from "react"
-import { NavLink } from "react-router-dom"
-
-import headphonesLogo from "../../assets/shared/desktop/image-category-thumbnail-headphones.png"
-import speakersLogo from "../../assets/shared/desktop/image-category-thumbnail-speakers.png"
-import earphonesLogo from "../../assets/shared/desktop/image-category-thumbnail-earphones.png"
 
 import Category from "../../components/Category/Category.jsx"
+import Product from "../../components/Product/Product.jsx"
+import SeeProductBtn from "../../components/SeeProductBtn/SeeProductBtn.jsx"
 
 import './Home.css'
 
-export default function Home() {
+export default function Home(){
     return(
         <div className="home">
+            <Product 
+                name="XX99 MARK II HEADPHONES"
+            />
+
             <div className="sponsored-product-container"> 
                 <p className="sponsored-product-new">NEW PRODUCT</p>
 
@@ -22,27 +23,19 @@ export default function Home() {
                     build quality made for the passionate music enthusiast.
                 </p>
 
-                <NavLink to="headphones">
-                    <button className="sponsored-product-btn">SEE PRODUCT</button>
-                </NavLink>
+                <SeeProductBtn 
+                    background="#D87D4A"
+                    color="#FFF"
+                    border="none"
+                />
             </div>
 
-            <div className="category-container">
-                <Category
-                    src={headphonesLogo}
-                    alt="Headphones Logo"
-                    name="headphones"      
-                />
-                <Category
-                    src={speakersLogo}
-                    alt="Speakers Logo"
-                    name="speakers"
-                />
-                <Category
-                    src={earphonesLogo}
-                    alt="Earphones Logo"
-                    name="earphones"
-                />
+            <Category />
+
+            <div className="featured-products-container">
+                <div className="featured-product">
+
+                </div>
             </div>
         </div>
     )
