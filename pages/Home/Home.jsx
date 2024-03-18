@@ -3,6 +3,8 @@ import React from "react"
 import Category from "../../components/Category/Category.jsx"
 import SeeProductBtn from "../../components/SeeProductBtn/SeeProductBtn.jsx"
 
+import featuredZX9Speaker from "../../assets/home/mobile/image-speaker-zx9.png"
+
 import './Home.css'
 
 export default function Home(){
@@ -28,8 +30,34 @@ export default function Home(){
             <Category />
 
             <div className="featured-products-container">
-                <div className="featured-product">
+                <div className="featured-product-zx9">
+                    <div className="oval-one"></div>
 
+                    <div className="oval-two"></div>
+                    
+                    <img 
+                        src={featuredZX9Speaker}
+                        alt="Speaker Logo"
+                        className="featured-product-img-zx9"
+                    />
+
+                    <div className="featured-product-info-zx9">
+                        <p className="featured-product-name-zx9">
+                            ZX9 <span>SPEAKER</span>
+                        </p>
+
+                        <p className="featured-product-desc-zx9">
+                            Upgrade to premium speakers that are 
+                            phenomenally built to deliver truly 
+                            remarkable sound.
+                        </p>
+
+                        <SeeProductBtn 
+                            background="#000"
+                            color="#FFF"
+                            border="none"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
