@@ -1,3 +1,10 @@
+.category-container{
+    padding: 0 1.5rem 7.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4.25rem;
+}
+
 .category{
     padding: 5.5rem 0 1.375rem;
     position: relative;
@@ -6,13 +13,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.category-container{
-    padding: 5.75rem 1.5rem 7.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 4.25rem;
 }
 
 .category .category-img{

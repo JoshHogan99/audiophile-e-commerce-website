@@ -1,7 +1,6 @@
 import React from "react"
 
 import Category from "../../components/Category/Category.jsx"
-import Product from "../../components/Product/Product.jsx"
 import SeeProductBtn from "../../components/SeeProductBtn/SeeProductBtn.jsx"
 
 import './Home.css'
@@ -9,11 +8,7 @@ import './Home.css'
 export default function Home(){
     return(
         <div className="home">
-            <Product 
-                name="XX99 MARK II HEADPHONES"
-            />
-
-            <div className="sponsored-product-container"> 
+           <div className="sponsored-product-container"> 
                 <p className="sponsored-product-new">NEW PRODUCT</p>
 
                 <p className="sponsored-product-name">XX99 MARK II HEADPHONES</p>

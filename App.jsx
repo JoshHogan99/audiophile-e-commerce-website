@@ -2,9 +2,13 @@ import React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import ScrollToTop from "./components/ScrollToTop.jsx"
+
 import Layout from "./components/Layout/Layout.jsx"
 import Home from "./pages/Home/Home.jsx"
-import Products from "./components/Products/Products.jsx"
+
+import Headphones from "./pages/Products/Headphones/Headphones.jsx"
+import Speakers from "./pages/Products/Speakers/Speakers.jsx"
+import Earphones from "./pages/Products/Earphones/Earphones.jsx"
 
 import './App.css'
 
@@ -15,12 +19,9 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
-                    <Route path="headphones" element={<Products products="headphones" />}>
-                    </Route>
-                    <Route path="speakers" element={<Products products="speakers" />}>
-                    </Route>
-                    <Route path="earphones" element={<Products products="earphones" />}>
-                    </Route>
+                    <Route path="headphones" element={<Headphones />} />
+                    <Route path="speakers" element={<Speakers />} />
+                    <Route path="earphones" element={<Earphones />} />
                 </Route>
             </Routes>
         </BrowserRouter>
