@@ -1,9 +1,16 @@
 import React from "react"
 
-import Category from "../../components/Category/Category.jsx"
 import SeeProductBtn from "../../components/SeeProductBtn/SeeProductBtn.jsx"
+import Category from "../../components/Category/Category.jsx"
+import BestGear from "../../components/BestGear/BestGear.jsx"
 
-import featuredZX9Speaker from "../../assets/home/mobile/image-speaker-zx9.png"
+import featuredZX9SpeakerMobile from "../../assets/home/mobile/image-speaker-zx9.png"
+import featuredZX9SpeakerTablet from "../../assets/home/tablet/image-speaker-zx9.png"
+import featuredZX9SpeakerDesktop from "../../assets/home/desktop/image-speaker-zx9.png"
+
+import featuredYX1EarphonesMobile from "../../assets/home/mobile/image-earphones-yx1.jpg"
+import featuredYX1EarphonesTablet from "../../assets/home/tablet/image-earphones-yx1.jpg"
+import featuredYX1EarphonesDesktop from "../../assets/home/desktop/image-earphones-yx1.jpg"
 
 import './Home.css'
 
@@ -30,23 +37,37 @@ export default function Home(){
             <Category />
 
             <div className="featured-products-container">
-                <div className="featured-product-zx9">
+                <div className="featured-product-one">
                     <div className="oval-one"></div>
 
                     <div className="oval-two"></div>
                     
-                    <img 
-                        src={featuredZX9Speaker}
-                        alt="Speaker Logo"
-                        className="featured-product-img-zx9"
-                    />
+                    <div className="featured-product-img-one-container">
+                        <img 
+                            src={featuredZX9SpeakerMobile}
+                            alt="Speaker Logo"
+                            className="featured-product-img-one mobile-img"
+                        />
 
-                    <div className="featured-product-info-zx9">
-                        <p className="featured-product-name-zx9">
+                        <img 
+                            src={featuredZX9SpeakerTablet}
+                            alt="Speaker Logo"
+                            className="featured-product-img-one tablet-img"
+                        />
+
+                        <img 
+                            src={featuredZX9SpeakerDesktop}
+                            alt="Speaker Logo"
+                            className="featured-product-img-one desktop-img"
+                        />
+                    </div>
+
+                    <div className="featured-product-info-one-container">
+                        <p className="featured-product-name-one">
                             ZX9 <span>SPEAKER</span>
                         </p>
 
-                        <p className="featured-product-desc-zx9">
+                        <p className="featured-product-desc-one">
                             Upgrade to premium speakers that are 
                             phenomenally built to deliver truly 
                             remarkable sound.
@@ -59,7 +80,57 @@ export default function Home(){
                         />
                     </div>
                 </div>
+
+                <div className="featured-product-two">
+                    <div className="featured-product-info-two">
+                        <p className="featured-product-name-two">
+                            ZX7 SPEAKER
+                        </p>
+
+                        <SeeProductBtn 
+                            background="transparent"
+                            color="#000"
+                            border="1px solid #000"
+                        />
+                    </div>
+                </div>
+
+                <div className="featured-product-three">
+                    <div className="featured-product-img-three-container">
+                        <img
+                            src={featuredYX1EarphonesMobile}
+                            alt="Earphones Logo"
+                            className="featured-product-img-three mobile-img"
+                        />
+
+                        <img 
+                            src={featuredYX1EarphonesTablet}
+                            alt="Earphones Logo"
+                            className="featured-product-img-three tablet-img"
+                        />
+
+                        <img 
+                            src={featuredYX1EarphonesDesktop}
+                            alt="Earphones Logo"
+                            className="featured-product-img-three desktop-img"
+                        />
+                    </div>
+
+                    <div className="featured-product-info-three">
+                        <p className="featured-product-name-three">
+                            YX1 EARPHONES
+                        </p>
+
+                        <SeeProductBtn 
+                            background="transparent"
+                            color="#000"
+                            border="1px solid #000"
+                        />
+                    </div>
+                </div>
             </div>
+
+            <BestGear />
         </div>
     )
 }

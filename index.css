@@ -20,3 +20,11 @@ h6,
 p{
     margin: 0;
 }
+
+.tablet-img{
+    display: none;
+}
+
+.desktop-img{
+    display: none;
+}

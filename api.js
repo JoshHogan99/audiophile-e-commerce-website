@@ -33,3 +33,12 @@ export async function getProducts(){
     }))
     return products
 }
+
+export async function getProduct(id){
+    const docRef = doc(db, "products", id)
+    const snapshot = await getDoc(docRef)
+    return{
+        ...snapshot.data(),
+        id: snapshot.id
+    }
+}

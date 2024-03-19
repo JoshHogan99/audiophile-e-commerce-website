@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react"
+import {NavLink} from "react-router-dom"
 
-import {getProducts} from "../../api";
-import SeeProductBtn from "../SeeProductBtn/SeeProductBtn";
+import {getProducts} from "../../api"
+import SeeProductBtn from "../SeeProductBtn/SeeProductBtn"
 
 import "./Products.css"
 
@@ -40,7 +41,7 @@ export default function Products({category}){
 
     const productsElements = productsFilter.map(product => {
         return(
-            <div className="category-product">
+            <div key={product.id} className="category-product">
                 <img 
                     src={product.categoryImage.mobile} 
                     alt={`${product.name} Logo`} 
@@ -62,15 +63,19 @@ export default function Products({category}){
                 <div className="category-product-info">
                     {product.new ? <p className="new-product">NEW PRODUCT</p> : null}
 
-                    <p className="category-product-name">{product.name}</p>
+                    <p className="category-product-name">{product.name}<span> {product.category}</span></p>
 
                     <p className="category-product-desc">{product.description}</p>
 
-                    <SeeProductBtn 
-                        background="#D87D4A"
-                        color="#FFF"
-                        border="none"
-                    />
+                    <NavLink
+                        to={product.id}
+                    >
+                        <SeeProductBtn 
+                            background="#D87D4A"
+                            color="#FFF"
+                            border="none"
+                        />
+                    </NavLink>
                 </div>
             </div>
        )
@@ -85,7 +90,6 @@ export default function Products({category}){
     }
 
     return(
-       
        <div className="category-products-container">
             <div className="category-products-banner">
                 <h1>{category}</h1>
