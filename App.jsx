@@ -30,7 +30,6 @@ export default function App() {
                     <Route path="speakers/:id" element={<SpeakersDetail />} />
                     <Route path="earphones" element={<Earphones />} />
                     <Route path="earphones/:id" element={<EarphonesDetail />} />
-                    
                 </Route>
             </Routes>
         </BrowserRouter>

@@ -1,6 +1,6 @@
 import React from "react"
 
-import SeeProductBtn from "../../components/SeeProductBtn/SeeProductBtn.jsx"
+import ProductBtn from "../../components/ProductBtn/ProductBtn.jsx"
 import Category from "../../components/Category/Category.jsx"
 import BestGear from "../../components/BestGear/BestGear.jsx"
 
@@ -27,10 +27,11 @@ export default function Home(){
                     build quality made for the passionate music enthusiast.
                 </p>
 
-                <SeeProductBtn 
+                <ProductBtn 
                     background="#D87D4A"
                     color="#FFF"
                     border="none"
+                    text="see product"
                 />
             </div>
 
@@ -73,10 +74,11 @@ export default function Home(){
                             remarkable sound.
                         </p>
 
-                        <SeeProductBtn 
+                        <ProductBtn 
                             background="#000"
                             color="#FFF"
                             border="none"
+                            text="see product"
                         />
                     </div>
                 </div>
@@ -87,10 +89,11 @@ export default function Home(){
                             ZX7 SPEAKER
                         </p>
 
-                        <SeeProductBtn 
+                        <ProductBtn 
                             background="transparent"
                             color="#000"
                             border="1px solid #000"
+                            text="see product"
                         />
                     </div>
                 </div>
@@ -121,10 +124,11 @@ export default function Home(){
                             YX1 EARPHONES
                         </p>
 
-                        <SeeProductBtn 
+                        <ProductBtn 
                             background="transparent"
                             color="#000"
                             border="1px solid #000"
+                            text="see product"
                         />
                     </div>
                 </div>
