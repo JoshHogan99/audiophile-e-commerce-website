@@ -5,6 +5,7 @@ import {getProduct} from "../../api"
 import ProductBtn from "../ProductBtn/ProductBtn"
 import Category from "../../components/Category/Category.jsx"
 import BestGear from "../../components/BestGear/BestGear.jsx"
+import QuantityButton from "../QuantityButton/QuantityButton.jsx"
 
 import "./Product.css"
 
@@ -13,7 +14,8 @@ export default function Product(){
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
     const {id} = useParams()
-    const [quantity, setQuantity] = useState(1)
+
+    console.log(location)
 
     useEffect(() => {
         async function loadProducts(){
@@ -37,14 +39,6 @@ export default function Product(){
     
     if(error){
         return <h2>There was an error: {error.message}</h2>
-    }
-
-    function addQuantity(){
-        setQuantity(quantity+1)
-    }
-
-    function subtractQuantity(){
-        setQuantity(quantity-1)
     }
 
     const includesElement = product ? product.includes.map(includesInfo => {
@@ -88,12 +82,16 @@ export default function Product(){
                     {othersInfo.name}
                 </p>
 
-                <ProductBtn 
-                    background="#D87D4A"
-                    color="#FFF"
-                    border="none"
-                    text="see product"
-                />
+                <NavLink
+                    to={`../${othersInfo.category}/${othersInfo.slug}`}
+                >
+                    <ProductBtn 
+                        background="#D87D4A"
+                        color="#FFF"
+                        border="none"
+                        text="see product"
+                    />
+                </NavLink>
             </div>
         )
     }) : null
@@ -138,21 +136,7 @@ export default function Product(){
                         <p className="selected-product-price">$ {product.price.toLocaleString()}</p>
             
                         <div className="quantity-container">
-                            <div className="quantity-button">
-                                <button 
-                                    onClick={subtractQuantity}
-                                    disabled={quantity === 1}
-                                >
-                                    -
-                                </button>
-                                <p>{quantity}</p>
-                                <button 
-                                    onClick={addQuantity}
-                                    disabled={quantity === 10}
-                                >
-                                    +
-                                </button>
-                            </div>
+                            <QuantityButton />
 
                             <ProductBtn 
                                 background="#D87D4A"
@@ -248,7 +232,7 @@ export default function Product(){
                     </div>
                 </div>
             )}
-            
+
             <Category />
 
             <BestGear />

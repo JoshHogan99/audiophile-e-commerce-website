@@ -68,7 +68,7 @@ export default function Products({category}){
                     <p className="category-product-desc">{product.description}</p>
 
                     <NavLink
-                        to={product.id}
+                        to={product.slug}
                     >
                         <ProductBtn 
                             background="#D87D4A"

@@ -1,0 +1,23 @@
+.quantity-button{
+    margin-right: 1rem;
+    padding: 1rem;
+    width: 120px;
+    height: 48px;
+    background: #F1F1F1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.quantity-button button,
+.quantity-button p{
+    font-family: Manrope;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.0625rem;
+}
+
+.quantity-button button{
+    border: none;
+    opacity: 0.25;
+    cursor: pointer;
+}
