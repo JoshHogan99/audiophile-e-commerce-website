@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react"
 import {NavLink} from "react-router-dom"
 
 import {getProducts} from "../../api"
-import ProductBtn from "../ProductBtn/ProductBtn"
 
 import "./Products.css"
 
@@ -67,15 +66,10 @@ export default function Products({category}){
 
                     <p className="category-product-desc">{product.description}</p>
 
-                    <NavLink
-                        to={product.slug}
-                    >
-                        <ProductBtn 
-                            background="#D87D4A"
-                            color="#FFF"
-                            border="none"
-                            text="see product"
-                        />
+                    <NavLink to={product.slug}>
+                        <button className="button-1">
+                            SEE PRODUCT
+                        </button>
                     </NavLink>
                 </div>
             </div>

@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react"
 import {NavLink, useParams} from "react-router-dom"
 
 import {getProduct} from "../../api"
-import ProductBtn from "../ProductBtn/ProductBtn"
 import Category from "../../components/Category/Category.jsx"
 import BestGear from "../../components/BestGear/BestGear.jsx"
 import QuantityButton from "../QuantityButton/QuantityButton.jsx"
@@ -14,6 +13,18 @@ export default function Product(){
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
     const {id} = useParams()
+    const [quantity, setQuantity] = useState(1)
+
+    function addQuantity(){
+        setQuantity(setQuantity => setQuantity+1)
+    }
+
+    function subtractQuantity(){
+        setQuantity(setQuantity => setQuantity-1)
+    }
+
+    const subtractButtonStyles = quantity === 1 ? {cursor: "not-allowed"} : null
+    const addButtonStyles = quantity === 5 ? {cursor: "not-allowed"} : null
 
     console.log(location)
 
@@ -82,15 +93,10 @@ export default function Product(){
                     {othersInfo.name}
                 </p>
 
-                <NavLink
-                    to={`../${othersInfo.category}/${othersInfo.slug}`}
-                >
-                    <ProductBtn 
-                        background="#D87D4A"
-                        color="#FFF"
-                        border="none"
-                        text="see product"
-                    />
+                <NavLink to={`../${othersInfo.category}/${othersInfo.slug}`}>
+                    <button className="button-1">
+                        SEE PRODUCT
+                    </button>
                 </NavLink>
             </div>
         )
@@ -136,14 +142,29 @@ export default function Product(){
                         <p className="selected-product-price">$ {product.price.toLocaleString()}</p>
             
                         <div className="quantity-container">
-                            <QuantityButton />
+                            <div className="numbers-default">
+                                <button 
+                                    onClick={subtractQuantity}
+                                    disabled={quantity === 1}
+                                    style={subtractButtonStyles}
+                                >
+                                    -
+                                </button>
 
-                            <ProductBtn 
-                                background="#D87D4A"
-                                color="#FFF"
-                                border="none"
-                                text="add to cart"
-                            />
+                                <p>{quantity}</p>
+
+                                <button 
+                                    onClick={addQuantity}
+                                    disabled={quantity === 5}
+                                    style={addButtonStyles}
+                                >
+                                    +
+                                </button>    
+                            </div>
+
+                            <button className="button-1">
+                                ADD TO CART
+                            </button>
                         </div>
 
                         <div className="selected-product-features-container">

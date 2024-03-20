@@ -1,6 +1,6 @@
 import React from "react"
+import {NavLink} from "react-router-dom"
 
-import ProductBtn from "../../components/ProductBtn/ProductBtn.jsx"
 import Category from "../../components/Category/Category.jsx"
 import BestGear from "../../components/BestGear/BestGear.jsx"
 
@@ -17,7 +17,7 @@ import './Home.css'
 export default function Home(){
     return(
         <div className="home">
-           <div className="sponsored-product-container"> 
+            <div className="sponsored-product-container"> 
                 <p className="sponsored-product-new">NEW PRODUCT</p>
 
                 <p className="sponsored-product-name">XX99 MARK II HEADPHONES</p>
@@ -27,12 +27,11 @@ export default function Home(){
                     build quality made for the passionate music enthusiast.
                 </p>
 
-                <ProductBtn 
-                    background="#D87D4A"
-                    color="#FFF"
-                    border="none"
-                    text="see product"
-                />
+                <NavLink to="/headphones/xx99-mark-two-headphones">
+                    <button className="button-1">
+                        SEE PRODUCT
+                    </button>
+                </NavLink>
             </div>
 
             <Category />
@@ -74,12 +73,11 @@ export default function Home(){
                             remarkable sound.
                         </p>
 
-                        <ProductBtn 
-                            background="#000"
-                            color="#FFF"
-                            border="none"
-                            text="see product"
-                        />
+                        <NavLink>
+                            <button className="button-1">
+                                SEE PRODUCT
+                            </button>
+                        </NavLink>
                     </div>
                 </div>
 
@@ -89,12 +87,11 @@ export default function Home(){
                             ZX7 SPEAKER
                         </p>
 
-                        <ProductBtn 
-                            background="transparent"
-                            color="#000"
-                            border="1px solid #000"
-                            text="see product"
-                        />
+                        <NavLink>
+                            <button className="button-1">
+                                SEE PRODUCT
+                            </button>
+                        </NavLink>
                     </div>
                 </div>
 
@@ -124,12 +121,11 @@ export default function Home(){
                             YX1 EARPHONES
                         </p>
 
-                        <ProductBtn 
-                            background="transparent"
-                            color="#000"
-                            border="1px solid #000"
-                            text="see product"
-                        />
+                        <NavLink>
+                            <button className="button-1">
+                                SEE PRODUCT
+                            </button>
+                        </NavLink>
                     </div>
                 </div>
             </div>

@@ -2,11 +2,20 @@
     box-sizing: border-box;
 }
 
+:root{
+    --orange: #D87D4A;
+    --off-black: #101010;
+    --gray: #F1F1F1;
+    --off-white: #FAFAFA;
+    --active-orange: #FBAF85;
+    --white: rgb(255, 255, 255);
+    --black: rgb(0, 0, 0);
+}
+
 html,
 body {
     margin: 0;
     padding: 0;
-    user-select: none;
     -webkit-user-drag: none;
     font-family: "Manrope", sans-serif;
 }
@@ -19,6 +28,163 @@ h5,
 h6,
 p{
     margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+h1{
+    font-size: 3.5rem;
+    line-height: 3.625rem; /* 103.571% */
+    letter-spacing: 0.125rem;
+}
+
+h2{
+    font-size: 2.5rem;
+    line-height: 2.75rem; /* 110% */
+    letter-spacing: 0.0893125rem;
+}
+
+h3{
+    font-size: 2rem;
+    line-height: 2.25rem; /* 112.5% */
+    letter-spacing: 0.0714375rem;
+}
+
+h4{
+    font-size: 1.75rem;
+    line-height: normal;
+    letter-spacing: 0.125rem;
+}
+
+h5{
+    font-size: 1.5rem;
+    line-height: normal;
+    letter-spacing: 0.107125rem;
+}
+
+h6{
+    font-size: 1.125rem;
+    line-height: normal;
+    letter-spacing: 0.080375rem;
+}
+
+
+.overline{
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.625rem;
+}
+
+.sub-title{
+    font-size: 0.8125rem;
+    font-weight: 700;
+    line-height: 1.5625rem; /* 192.308% */
+    letter-spacing: 0.0580625rem;
+}
+
+p{
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.5625rem; /* 166.667% */
+}
+
+.opacity{
+    opacity: 0.5;
+}
+
+.radius{
+    border-radius: 8px;
+}
+
+img{
+    user-select: none;
+}
+
+button{
+    font-family: "Manrope", sans-serif;
+    cursor: pointer;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.0625rem;
+    text-transform: uppercase;
+}
+
+.button-1,
+.button-2{
+    width: 160px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+.button-1,
+.button-3{
+    border: none;
+}
+
+.button-2,
+.button-3{
+    color: var(--black);
+    background: transparent;
+}
+
+.button-1{
+    background: var(--orange);
+    color: var(--white);
+}
+
+.button-1:hover{
+    background: var(--active-orange);
+}
+
+.button-2{
+    border: 1px solid var(--black);
+}
+
+.button-2:hover{
+    background: var(--black);
+    color: var(--white);
+}
+
+.button-3:hover{
+    color: var(--orange);
+    opacity: 1;
+}
+
+.numbers-default{
+    width: 120px;
+    height: 48px;
+    flex-shrink: 0;
+    background: var(--gray);
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.numbers-default button{
+    border: none;
+    opacity: 0.25;
+    cursor: pointer;
+}
+
+.numbers-default p{
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.0625rem;
 }
 
 .tablet-img{
