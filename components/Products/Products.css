@@ -70,4 +70,5 @@
 .category-product-desc{
     font-size: 0.9375rem;
     line-height: 25px; /* 166.667% */
+    opacity: 0.5;
 }
