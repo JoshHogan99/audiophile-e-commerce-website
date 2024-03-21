@@ -4,7 +4,6 @@ import {NavLink, useParams} from "react-router-dom"
 import {getProduct} from "../../api"
 import Category from "../../components/Category/Category.jsx"
 import BestGear from "../../components/BestGear/BestGear.jsx"
-import QuantityButton from "../QuantityButton/QuantityButton.jsx"
 
 import "./Product.css"
 
@@ -43,6 +42,8 @@ export default function Product(){
 
         loadProducts()
     }, [id])
+
+    console.log(id)
 
     if(loading){
         return <h2>Loading...</h2>
