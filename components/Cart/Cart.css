@@ -71,13 +71,14 @@ opacity: 0.5;
     line-height: 25px; /* 166.667% */
 }
 
-.cart-intro-price{
+.cart-inventory-price{
     color: #000;
     font-family: Manrope;
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
     line-height: 25px; /* 178.571% */
+    opacity: 0.5;
 }
 
 .cart-quantity-button{
@@ -116,6 +117,7 @@ opacity: 0.5;
     font-style: normal;
     font-weight: 400;
     line-height: 25px; /* 166.667% */
+    opacity: 0.5;
 }
 
 .cart-total-price{

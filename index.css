@@ -8,8 +8,8 @@
     --gray: #F1F1F1;
     --off-white: #FAFAFA;
     --active-orange: #FBAF85;
-    --white: rgb(255, 255, 255);
-    --black: rgb(0, 0, 0);
+    --white: #FFFFFF;
+    --black: #000000;
 }
 
 html,
@@ -28,6 +28,7 @@ h5,
 h6,
 p{
     margin: 0;
+    padding: 0;
 }
 
 h1,
@@ -185,6 +186,14 @@ button{
     font-size: 0.8125rem;
     font-weight: 700;
     letter-spacing: 0.0625rem;
+}
+
+.visible{
+    display: block;
+}
+
+.hidden{
+    display: none;
 }
 
 .tablet-img{

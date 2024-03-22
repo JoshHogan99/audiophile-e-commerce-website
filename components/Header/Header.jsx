@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import {NavLink, useLocation} from "react-router-dom"
 
 import Cart from "../Cart/Cart.jsx"
@@ -40,18 +40,20 @@ export default function Header() {
 
             {showNav && <div className="page-overlay" onClick={handleNav}></div>}
 
-            {/* {showNav && (
+            {showNav && (
                 <div className="header-navlinks">
                     <NavLink to="/about">OUR COMPANY</NavLink>
                     <NavLink to="/locations">LOCATIONS</NavLink>
                     <NavLink to="/contact">CONTACT</NavLink>
                 </div>
-            )} */}
+            )}
 
             {showCart && <div className="page-overlay" onClick={handleCart} ></div>}
 
             {showCart && (
+                <>
                 <Cart />
+                </>
             )}
         </header>
     )

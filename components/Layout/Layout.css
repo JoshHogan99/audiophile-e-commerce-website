@@ -2,3 +2,7 @@
     min-height: 100vh;
     overflow: hidden;
 }
+
+main{
+    padding-top: 5.65rem;
+}

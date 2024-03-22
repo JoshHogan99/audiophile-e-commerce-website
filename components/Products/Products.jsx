@@ -87,7 +87,7 @@ export default function Products({category}){
     return(
        <div className="category-products-container">
             <div className="category-products-banner">
-                <h1>{category}</h1>
+                <h4>{category}</h4>
             </div>
 
             <div className="category-product-container">

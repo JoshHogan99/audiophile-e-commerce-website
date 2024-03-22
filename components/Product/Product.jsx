@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 import {NavLink, useParams} from "react-router-dom"
 
 import {getProduct} from "../../api"
+
 import Category from "../../components/Category/Category.jsx"
 import BestGear from "../../components/BestGear/BestGear.jsx"
 
@@ -25,8 +26,6 @@ export default function Product(){
     const subtractButtonStyles = quantity === 1 ? {cursor: "not-allowed"} : null
     const addButtonStyles = quantity === 5 ? {cursor: "not-allowed"} : null
 
-    console.log(location)
-
     useEffect(() => {
         async function loadProducts(){
             setLoading(true)
@@ -43,8 +42,6 @@ export default function Product(){
         loadProducts()
     }, [id])
 
-    console.log(id)
-
     if(loading){
         return <h2>Loading...</h2>
     }
@@ -53,9 +50,9 @@ export default function Product(){
         return <h2>There was an error: {error.message}</h2>
     }
 
-    const includesElement = product ? product.includes.map(includesInfo => {
+    const includesElement = product ? product.includes.map((includesInfo, index) => {
         return(
-            <div className="selected-product-includes-info">
+            <div key={index} className="selected-product-includes-info">
                 <p className="selected-product-includes-quantity">
                     {includesInfo.quantity}x
                 </p>
@@ -69,9 +66,9 @@ export default function Product(){
 
     const formattedFeatures = product ? product.features.replace(/\.([^ ])/g, '.<br><br>$1') : null
 
-    const othersElement = product ? product.others.map(othersInfo => {
+    const othersElement = product ? product.others.map((othersInfo, index) => {
         return(
-            <div className="selected-product-others-info">
+            <div key={index} className="selected-product-others-info">
                 <img 
                     src={`../.${othersInfo.image.mobile}`} 
                     alt={othersInfo.slug}
@@ -102,6 +99,21 @@ export default function Product(){
             </div>
         )
     }) : null
+
+    function handleCart(slug, name, price, quantity){
+        const product = {
+            slug: slug,
+            name: name,
+            price: price,
+            quantity: quantity
+        }
+
+        const existingCartItems = JSON.parse(localStorage.getItem("cart")) || []
+
+        const updatedCartItems = [...existingCartItems, product]
+
+        localStorage.setItem("cart", JSON.stringify(updatedCartItems))
+    }
 
     return(
         <div className="selected-products-container">
@@ -163,7 +175,15 @@ export default function Product(){
                                 </button>    
                             </div>
 
-                            <button className="button-1">
+                            <button 
+                                className="button-1"
+                                onClick={() => handleCart(
+                                    product.slug,
+                                    product.name,
+                                    product.price,
+                                    quantity
+                                )}
+                            >
                                 ADD TO CART
                             </button>
                         </div>
