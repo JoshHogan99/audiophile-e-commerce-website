@@ -1,14 +1,16 @@
 import React, {useState, useEffect} from "react"
-import {NavLink} from "react-router-dom"
+import {NavLink, useParams, useLocation} from "react-router-dom"
 
 import {getProducts} from "../../api"
 
 import "./Products.css"
 
-export default function Products({category}){
+export default function Products(){
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
+    const {pathname} = useLocation()
+    const category = pathname.slice(1)
 
     useEffect(() => {
         async function loadProducts(){

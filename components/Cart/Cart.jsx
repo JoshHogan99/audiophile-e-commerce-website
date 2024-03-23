@@ -1,12 +1,5 @@
 import React, {useEffect, useState} from "react"
 
-import xx59Headphones from "../../assets/cart/image-xx59-headphones.jpg"
-import xx99MarkOneHeadphones from "../../assets/cart/image-xx99-mark-one-headphones.jpg"
-import xx99MarkTwoHeadphones from "../../assets/cart/image-xx99-mark-two-headphones.jpg"
-import yx1Earphones from "../../assets/cart/image-yx1-earphones.jpg"
-import zx7Speaker from "../../assets/cart/image-zx7-speaker.jpg"
-import zx9Speaker from "../../assets/cart/image-zx9-speaker.jpg"
-
 import {getProduct} from "../../api"
 
 import './Cart.css'
@@ -17,25 +10,21 @@ export default function Cart() {
     const [cartItems, setCartItems] = useState([])
     const [cartTotal, setCartTotal] = useState(0)
 
-    const [quantity, setQuantity] = useState(1)
+    function setQuantity(id, alter){
+        const updatedCartItems = [...cartItems]
 
-    function addQuantity(){
-        setQuantity(setQuantity => setQuantity+1)
-    }
+        let alterQuantity
 
-    function subtractQuantity(){
-        setQuantity(setQuantity => setQuantity-1)
-    }
+        alterQuantity = alter === "add" ? 1 : -1
 
-    const subtractButtonStyles = quantity === 1 ? {cursor: "not-allowed"} : null
-    const addButtonStyles = quantity === 5 ? {cursor: "not-allowed"} : null
+        updatedCartItems[id] = {
+            ...updatedCartItems[id],
+            quantity: (updatedCartItems[id].quantity || 0) + alterQuantity
+        }
 
-    if(loading){
-        return <h2>Loading...</h2>
-    }
-    
-    if(error){
-        return <h2>There was an error: {error.message}</h2>
+        setCartItems(updatedCartItems)
+
+        localStorage.setItem("cart", JSON.stringify(updatedCartItems))
     }
 
     useEffect(() => {
@@ -51,7 +40,8 @@ export default function Cart() {
     }
 
     useEffect(() => {
-        const total = cartItems.reduce((acc, item) => acc + item.price, 0)
+        const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
+
         setCartTotal(total)
     }, [cartItems])
 
@@ -80,19 +70,17 @@ export default function Cart() {
                         </div>
 
                         <button 
-                            onClick={subtractQuantity}
-                            disabled={quantity === 1}
-                            style={subtractButtonStyles}
+                            onClick={() => setQuantity(index, "subtract")}
+                            style={item.quantity === 1 ? {cursor: "not-allowed"} : null}
+                            disabled={item.quantity === 1} 
                         >
                             -
                         </button>
 
-                        <p>{quantity}</p>
+                        <p>{item.quantity}</p>
 
                         <button 
-                            onClick={addQuantity}
-                            disabled={quantity === 5}
-                            style={addButtonStyles}
+                            onClick={() => setQuantity(index, "add")}
                         >
                             +
                         </button> 
