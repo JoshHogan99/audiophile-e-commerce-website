@@ -222,8 +222,24 @@ label{
     margin-bottom: 0.5rem;
 }
 
-input[type="text"]{
-    width: 309px;
+input,
+.radio{
+    color: var(--black);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.015625rem;
+}
+
+input::placeholder{
+    opacity: 0.4;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+.radio{
+    width: 280px;
     height: 56px;
     flex-shrink: 0;
     border-radius: 8px;
@@ -232,8 +248,16 @@ input[type="text"]{
     padding-left: 1.5rem;
 }
 
+.radio{
+    padding: 1rem;
+}
+
 input[type="radio"]{
-    border: 1px solid red;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    opacity: 0.5;
+    vertical-align: middle;
 }
 
 input[type="text"]:active{
@@ -242,4 +266,10 @@ input[type="text"]:active{
 
 input[type="text"]:required{
     border: 2px solid var(--red);
+}
+
+@media(min-width: 768px){
+    input[type="text"]{
+        width: 309px;
+    }
 }

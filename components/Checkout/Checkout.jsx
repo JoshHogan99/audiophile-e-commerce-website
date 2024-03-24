@@ -62,11 +62,29 @@ export default function Checkout() {
 
                     <p className="sub-title orange">PAYMENT DETAILS</p>
 
-                    <input type="radio" id="e-money" name="payment-method" value="e-Money" onClick={() => setEMoney(true)} />
-                    <label className="radio" for="e-money">e-Money</label>
+                    <label className="radio" for="e-money">
+                        <input 
+                            type="radio" 
+                            id="e-money" 
+                            name="payment-method" 
+                            value="e-Money" 
+                            onClick={() => setEMoney(true)} 
+                        />
 
-                    <input type="radio" id="cash" name="payment-method" value="Cash on Delivery" onClick={() => setEMoney(false)} />
-                    <label className="radio" for="cash">Cash on Delivery</label>
+                        e-Money
+                    </label>
+
+                    <label className="radio" for="cash">
+                        <input 
+                            type="radio" 
+                            id="cash" 
+                            name="payment-method" 
+                            value="Cash on Delivery" 
+                            onClick={() => setEMoney(false)} 
+                        />
+                        
+                        Cash on Delivery
+                    </label>
 
                     {eMoney && (
                         <>

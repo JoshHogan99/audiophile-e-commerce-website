@@ -5,13 +5,17 @@
 
 .checkout-form{
     margin-bottom: 2rem;
+    padding: 1.5rem 1.5rem 2rem;
+}
+
+.checkout{
+    padding: 2rem 1.5rem;
 }
 
 .checkout-form,
 .checkout{
     background: #fff;
     border-radius: 8px;
-    padding: 2rem 1.75rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
