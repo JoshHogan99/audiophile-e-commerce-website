@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 
 import './Cart.css'
 
-export default function Cart() {
+export default function Cart({handleCart}) {
     const [cartItems, setCartItems] = useState([])
     const [cartTotal, setCartTotal] = useState(0)
 
@@ -98,6 +98,7 @@ export default function Cart() {
                     className="checkout-button"
                     style={!cartItems.length ? {cursor: "not-allowed"} : null}
                     disabled={!cartItems.length} 
+                    onClick={handleCart}
                 >
                     CHECKOUT
                 </button>

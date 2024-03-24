@@ -51,9 +51,9 @@ export default function Header() {
             {showCart && <div className="page-overlay" onClick={handleCart} ></div>}
 
             {showCart && (
-                <>
-                <Cart />
-                </>
+                <Cart 
+                    handleCart={handleCart}
+                />
             )}
         </header>
     )
