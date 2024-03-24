@@ -257,7 +257,13 @@ input[type="radio"]{
     height: 20px;
     flex-shrink: 0;
     opacity: 0.5;
-    vertical-align: middle;
+    vertical-align: bottom;
+    margin-right: 1rem;
+}
+
+input[type="radio"]:checked{
+    accent-color: var(--orange);
+    opacity: 1.0;
 }
 
 input[type="text"]:active{

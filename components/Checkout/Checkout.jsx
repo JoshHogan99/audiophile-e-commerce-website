@@ -35,56 +35,62 @@ export default function Checkout() {
                 <h4>CHECKOUT</h4>
 
                 <form>
-                    <p className="sub-title orange">BILLING DETAILS</p>
+                    <div className="form-billing">
+                        <p className="sub-title orange">BILLING DETAILS</p>
 
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Alexei Ward" />
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Alexei Ward" />
 
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="alexei@mail.com" />
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="alexei@mail.com" />
 
-                    <label for="phone">Phone Number</label>
-                    <input type="number" id="phone" name="phone" placeholder="+1 202-555-0136" />
+                        <label for="phone">Phone Number</label>
+                        <input type="number" id="phone" name="phone" placeholder="+1 202-555-0136" />
+                    </div>
 
-                    <p className="sub-title orange">SHIPPING INFO</p>
+                    <div className="form-shipping">
+                        <p className="sub-title orange">SHIPPING INFO</p>
 
-                    <label for="address">Your Address</label>
-                    <input type="text" id="address" name="address" placeholder="1137 Williams Avenue" />
+                        <label for="address">Your Address</label>
+                        <input type="text" id="address" name="address" placeholder="1137 Williams Avenue" />
 
-                    <label for="zip-code">ZIP Code</label>
-                    <input type="text" id="zip-code" name="zip-code" placeholder="10001" />
+                        <label for="zip-code">ZIP Code</label>
+                        <input type="text" id="zip-code" name="zip-code" placeholder="10001" />
 
-                    <label for="city">City</label>
-                    <input type="text" id="city" name="city" placeholder="New York" />
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" placeholder="New York" />
 
-                    <label for="country">Country</label>
-                    <input type="text" id="country" name="country" placeholder="United States" />
+                        <label for="country">Country</label>
+                        <input type="text" id="country" name="country" placeholder="United States" />
+                    </div>
 
-                    <p className="sub-title orange">PAYMENT DETAILS</p>
+                    <div className="form-payment">
+                        <p className="sub-title orange">PAYMENT DETAILS</p>
 
-                    <label className="radio" for="e-money">
-                        <input 
-                            type="radio" 
-                            id="e-money" 
-                            name="payment-method" 
-                            value="e-Money" 
-                            onClick={() => setEMoney(true)} 
-                        />
+                        <label className="radio" for="e-money">
+                            <input 
+                                type="radio" 
+                                id="e-money" 
+                                name="payment-method" 
+                                value="e-Money" 
+                                onClick={() => setEMoney(true)} 
+                            />
 
-                        e-Money
-                    </label>
+                            e-Money
+                        </label>
 
-                    <label className="radio" for="cash">
-                        <input 
-                            type="radio" 
-                            id="cash" 
-                            name="payment-method" 
-                            value="Cash on Delivery" 
-                            onClick={() => setEMoney(false)} 
-                        />
-                        
-                        Cash on Delivery
-                    </label>
+                        <label className="radio" for="cash">
+                            <input 
+                                type="radio" 
+                                id="cash" 
+                                name="payment-method" 
+                                value="Cash on Delivery" 
+                                onClick={() => setEMoney(false)} 
+                            />
+                            
+                            Cash on Delivery
+                        </label>
+                    </div>
 
                     {eMoney && (
                         <>

@@ -44,7 +44,3 @@
 .checkout-form form label{
     display: block;
 }
-
-.checkout-form form .radio{
-    display: inline-block;
-}
