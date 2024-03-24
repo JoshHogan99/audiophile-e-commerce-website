@@ -1,0 +1,46 @@
+.checkout-container{
+    padding: 1rem 1.5rem;
+    background: #000;
+}
+
+.checkout-form{
+    margin-bottom: 2rem;
+}
+
+.checkout-form,
+.checkout{
+    background: #fff;
+    border-radius: 8px;
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.cart-inventory-extra{
+    display: flex;
+    align-items: center;
+    gap: 1rem
+}
+
+.cart-total{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.grand .cart-total-price{
+    color: #D87D4A;
+}
+
+.checkout-form form{
+
+}
+
+.checkout-form form label{
+    display: block;
+}
+
+.checkout-form form .radio{
+    display: inline-block;
+}

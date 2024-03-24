@@ -1,12 +1,9 @@
 import React, {useEffect, useState} from "react"
-
-import {getProduct} from "../../api"
+import { NavLink } from "react-router-dom"
 
 import './Cart.css'
 
 export default function Cart() {
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(null)
     const [cartItems, setCartItems] = useState([])
     const [cartTotal, setCartTotal] = useState(0)
 
@@ -94,9 +91,17 @@ export default function Cart() {
                 <p className="cart-total-price">$ {cartTotal}</p>
             </div>
 
-            <button className="checkout-button">
-                CHECKOUT
-            </button>
+            <NavLink
+                to="/checkout"
+            >
+                <button 
+                    className="checkout-button"
+                    style={!cartItems.length ? {cursor: "not-allowed"} : null}
+                    disabled={!cartItems.length} 
+                >
+                    CHECKOUT
+                </button>
+            </NavLink>
         </div>
     )
 }

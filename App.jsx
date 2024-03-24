@@ -9,6 +9,8 @@ import Home from "./pages/Home/Home.jsx"
 import Products from "./components/Products/Products.jsx"
 import Product from "./components/Product/Product.jsx"
 
+import Checkout from "./components/Checkout/Checkout.jsx"
+
 import './App.css'
 
 export default function App() {
@@ -24,6 +26,7 @@ export default function App() {
                     <Route path="speakers/:id" element={<Product />} />
                     <Route path="earphones" element={<Products />} />
                     <Route path="earphones/:id" element={<Product />} />
+                    <Route path="checkout" element={<Checkout />} />
                 </Route>
             </Routes>
         </BrowserRouter>

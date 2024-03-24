@@ -6,10 +6,12 @@
     --orange: #D87D4A;
     --off-black: #101010;
     --gray: #F1F1F1;
+    --off-gray: #CFCFCF;
     --off-white: #FAFAFA;
     --active-orange: #FBAF85;
     --white: #FFFFFF;
     --black: #000000;
+    --red: #CD2C2C;
 }
 
 html,
@@ -107,6 +109,14 @@ p{
     opacity: 0.5;
 }
 
+.fw-700{
+    font-weight: 700;
+}
+
+.orange{
+    color: var(--orange);
+}
+
 .radius{
     border-radius: 8px;
 }
@@ -202,4 +212,34 @@ button{
 
 .desktop-img{
     display: none;
+}
+
+label{
+    color: var(--black);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: -0.01337rem;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"]{
+    width: 309px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid var(--off-gray);
+    background: var(--white);
+    padding-left: 1.5rem;
+}
+
+input[type="radio"]{
+    border: 1px solid red;
+}
+
+input[type="text"]:active{
+    border: 1px solid var(--orange);
+}
+
+input[type="text"]:required{
+    border: 2px solid var(--red);
 }
