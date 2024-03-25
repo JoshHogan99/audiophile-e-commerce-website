@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from "react"
-import {NavLink} from "react-router-dom"
+import {NavLink, json} from "react-router-dom"
 
 import "./Checkout.css"
+
+import iconOrderConfirmation from "../../assets/checkout/icon-order-confirmation.svg"
 
 export default function Checkout() {
     const [cartItems, setCartItems] = useState([])
     const [cartTotal, setCartTotal] = useState(0)
-    const [grandTotal, setGrandTotal] = useState(0)
     const [eMoney, setEMoney] = useState(false)
+    const [cashDelivery, setCashDelivery] = useState(false)
+    const [data, setData] = useState([])
 
     useEffect(() => {
         const storedCartItems = JSON.parse(localStorage.getItem("cart")) || []
@@ -20,6 +23,20 @@ export default function Checkout() {
 
         setCartTotal(total)
     }, [cartItems])
+
+    function handleSubmit(event){
+        event.preventDefault()
+
+        const formData = new FormData(event.target)
+        setData(Object.fromEntries(formData))
+
+        event.target.reset()
+
+        setEMoney(false)
+        setCashDelivery(false)
+
+        window.scrollTo({top: 0})
+    }
 
     return(
         <div className="checkout-container">
@@ -34,27 +51,27 @@ export default function Checkout() {
             <div className="checkout-form">
                 <h4>CHECKOUT</h4>
 
-                <form>
+                <form id="myForm" onSubmit={handleSubmit}>
                     <div className="form-billing inner">
                         <p className="sub-title orange">BILLING DETAILS</p>
 
-                        <label for="name">
+                        <label>
                             Name
 
-                            <input type="text" id="name" name="name" placeholder="Alexei Ward" />
+                            <input required type="text" id="name" name="name" autoComplete="name" placeholder="Alexei Ward" />
                         </label>
                         
 
-                        <label for="email">
+                        <label>
                             Email Address
 
-                            <input type="email" id="email" name="email" placeholder="alexei@mail.com" />
+                            <input required type="email" id="email" name="email" autoComplete="email" placeholder="alexei@mail.com" />
                         </label>
 
-                        <label for="phone">
+                        <label>
                             Phone Number
 
-                            <input type="number" id="phone" name="phone" placeholder="+1 202-555-0136" />
+                            <input required type="tel" id="tel" name="tel" autoComplete="tel" placeholder="+1 202-555-0136" />
                         </label>
                         
                     </div>
@@ -62,57 +79,71 @@ export default function Checkout() {
                     <div className="form-shipping inner">
                         <p className="sub-title orange">SHIPPING INFO</p>
 
-                        <label for="address">
+                        <label>
                             Your Address
 
-                            <input type="text" id="address" name="address" placeholder="1137 Williams Avenue" />
+                            <input required type="text" id="address" name="address" autoComplete="on" placeholder="1137 Williams Avenue" />
                         </label>
 
-                        <label for="zip-code">
+                        <label>
                             ZIP Code
 
-                            <input type="text" id="zip-code" name="zip-code" placeholder="10001" />
+                            <input required type="text" id="zip-code" name="zip-code" autoComplete="postal-code" placeholder="10001" />
                         </label>
 
-                        <label for="city">
+                        <label>
                             City
 
-                            <input type="text" id="city" name="city" placeholder="New York" />
+                            <input required type="text" id="city" name="city" autoComplete="address-level2" placeholder="New York" />
                         </label>
 
-                        <label for="country">
+                        <label>
                             Country
 
-                            <input type="text" id="country" name="country" placeholder="United States" />
+                            <input required type="text" id="country" name="country" autoComplete="country" placeholder="United States" />
                         </label>
                     </div>
 
                     <div className="form-payment">
                         <p className="sub-title orange">PAYMENT DETAILS</p>
 
-                        <label for="payment-method">
-                            Payment Method
-                        </label>
+                        <p className="sub-title">Payment Method</p>
 
-                        <label className="radio" for="e-money">
+                        <label 
+                            className="radio" 
+                            style={
+                                eMoney 
+                                ? {border: "1px solid #D87D4A"} 
+                                : {border: "1px solid #CFCFCF"}
+                            }
+                        >
                             <input 
+                                required
                                 type="radio" 
                                 id="e-money" 
                                 name="payment-method" 
                                 value="e-Money" 
-                                onClick={() => setEMoney(true)} 
+                                onClick={() => {setEMoney(true); setCashDelivery(false)}} 
                             />
 
                             e-Money
                         </label>
 
-                        <label className="radio" for="cash">
+                        <label 
+                            className="radio" 
+                            style={
+                                cashDelivery 
+                                ? {border: "1px solid #D87D4A"} 
+                                : {border: "1px solid #CFCFCF"}
+                            }
+                        >
                             <input 
+                                required
                                 type="radio" 
                                 id="cash" 
                                 name="payment-method" 
                                 value="Cash on Delivery" 
-                                onClick={() => setEMoney(false)} 
+                                onClick={() => {setEMoney(false); setCashDelivery(true)}} 
                             />
                             
                             Cash on Delivery
@@ -120,13 +151,19 @@ export default function Checkout() {
                     </div>
 
                     {eMoney && (
-                        <>
-                            <label for="e-money-number">e-Money Number</label>
-                            <input type="text" id="e-money-number" name="e-money-number" placeholder="238512993" />
+                        <div className="e-money-container">
+                            <label>
+                                e-Money Number
+
+                                <input required type="text" id="e-money-number" name="e-money-number" autoComplete="off" placeholder="238512993" />
+                            </label>
         
-                            <label for="e-money-pin">e-Money PIN</label>
-                            <input type="text" id="e-money-pin" name="e-money-pin" placeholder="6891" />
-                        </>
+                            <label>
+                                e-Money PIN
+
+                                <input required type="text" id="e-money-pin" name="e-money-pin" autoComplete="off" placeholder="6891" />
+                            </label>
+                        </div>
                     )}
                 </form>
             </div>
@@ -180,9 +217,25 @@ export default function Checkout() {
                     </div>
                 </div>
 
-                <button className="checkout-button">
+                <button type="submit" form="myForm" className="checkout-button">
                     CONTINUE & PAY
                 </button>
+            </div>
+
+            <div className="checkout-confirmation">
+                <img src={iconOrderConfirmation} />
+
+                <h5>THANK YOU FOR YOUR ORDER</h5>
+
+                <p className="opacity">You will receive an email confirmation shortly.</p>
+
+                <div className="product-info">
+                    <div className="product">
+                        <img src={`../../assets/cart/image-${cartItems[0].slug}.jpg`} />
+
+                        
+                    </div>
+                </div>
             </div>
         </div>
     )

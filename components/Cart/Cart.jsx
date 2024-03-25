@@ -31,7 +31,7 @@ export default function Cart({handleCart}) {
     }, [])
 
     function handleCartClear(){
-        localStorage.clear()
+        localStorage.removeItem("cart")
 
         setCartItems([])
     }

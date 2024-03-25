@@ -236,7 +236,7 @@ input::placeholder{
 
 input[type="text"],
 input[type="email"],
-input[type="number"],
+input[type="tel"],
 .radio{
     width: 280px;
     height: 56px;
@@ -248,11 +248,7 @@ input[type="number"],
 }
 
 .radio{
-    border: 1px solid var(--orange);
-}
-
-.radio{
-    padding: 1rem;
+    padding: 0.85rem 1rem 1rem;
 }
 
 input[type="radio"]{
@@ -273,7 +269,7 @@ input[type="text"]:active{
     border: 1px solid var(--orange);
 }
 
-input[type="text"]:required{
+input:required{
     border: 2px solid var(--red);
 }
 
