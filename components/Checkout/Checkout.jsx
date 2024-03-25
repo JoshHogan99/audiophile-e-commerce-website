@@ -35,37 +35,64 @@ export default function Checkout() {
                 <h4>CHECKOUT</h4>
 
                 <form>
-                    <div className="form-billing">
+                    <div className="form-billing inner">
                         <p className="sub-title orange">BILLING DETAILS</p>
 
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Alexei Ward" />
+                        <label for="name">
+                            Name
 
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="alexei@mail.com" />
+                            <input type="text" id="name" name="name" placeholder="Alexei Ward" />
+                        </label>
+                        
 
-                        <label for="phone">Phone Number</label>
-                        <input type="number" id="phone" name="phone" placeholder="+1 202-555-0136" />
+                        <label for="email">
+                            Email Address
+
+                            <input type="email" id="email" name="email" placeholder="alexei@mail.com" />
+                        </label>
+
+                        <label for="phone">
+                            Phone Number
+
+                            <input type="number" id="phone" name="phone" placeholder="+1 202-555-0136" />
+                        </label>
+                        
                     </div>
 
-                    <div className="form-shipping">
+                    <div className="form-shipping inner">
                         <p className="sub-title orange">SHIPPING INFO</p>
 
-                        <label for="address">Your Address</label>
-                        <input type="text" id="address" name="address" placeholder="1137 Williams Avenue" />
+                        <label for="address">
+                            Your Address
 
-                        <label for="zip-code">ZIP Code</label>
-                        <input type="text" id="zip-code" name="zip-code" placeholder="10001" />
+                            <input type="text" id="address" name="address" placeholder="1137 Williams Avenue" />
+                        </label>
 
-                        <label for="city">City</label>
-                        <input type="text" id="city" name="city" placeholder="New York" />
+                        <label for="zip-code">
+                            ZIP Code
 
-                        <label for="country">Country</label>
-                        <input type="text" id="country" name="country" placeholder="United States" />
+                            <input type="text" id="zip-code" name="zip-code" placeholder="10001" />
+                        </label>
+
+                        <label for="city">
+                            City
+
+                            <input type="text" id="city" name="city" placeholder="New York" />
+                        </label>
+
+                        <label for="country">
+                            Country
+
+                            <input type="text" id="country" name="country" placeholder="United States" />
+                        </label>
                     </div>
 
                     <div className="form-payment">
                         <p className="sub-title orange">PAYMENT DETAILS</p>
+
+                        <label for="payment-method">
+                            Payment Method
+                        </label>
 
                         <label className="radio" for="e-money">
                             <input 
