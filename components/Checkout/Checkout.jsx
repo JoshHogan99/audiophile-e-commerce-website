@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react"
-import {NavLink, json} from "react-router-dom"
+import {NavLink} from "react-router-dom"
 
 import "./Checkout.css"
 
@@ -11,6 +11,7 @@ export default function Checkout() {
     const [eMoney, setEMoney] = useState(false)
     const [cashDelivery, setCashDelivery] = useState(false)
     const [data, setData] = useState([])
+    const [showCheckout, setShowCheckout] = useState(false)
 
     useEffect(() => {
         const storedCartItems = JSON.parse(localStorage.getItem("cart")) || []
@@ -36,6 +37,12 @@ export default function Checkout() {
         setCashDelivery(false)
 
         window.scrollTo({top: 0})
+    }
+
+    function handleCheckout(){
+        setShowCheckout(setShowCheckout => !setShowCheckout)
+
+        localStorage.removeItem("cart")
     }
 
     return(
@@ -217,26 +224,58 @@ export default function Checkout() {
                     </div>
                 </div>
 
-                <button type="submit" form="myForm" className="checkout-button">
+                <button onClick={handleCheckout} type="submit" form="myForm" className="checkout-button">
                     CONTINUE & PAY
                 </button>
             </div>
 
-            <div className="checkout-confirmation">
-                <img src={iconOrderConfirmation} />
+            {showCheckout && <div className="page-overlay" onClick={handleCheckout} ></div>}
 
-                <h5>THANK YOU FOR YOUR ORDER</h5>
+            {showCheckout && (
+                <div className="checkout-confirmation">
+                    <img src={iconOrderConfirmation} />
 
-                <p className="opacity">You will receive an email confirmation shortly.</p>
+                    <div className="info">
+                        <h5>THANK YOU FOR YOUR ORDER</h5>
 
-                <div className="product-info">
-                    <div className="product">
-                        <img src={`../../assets/cart/image-${cartItems[0].slug}.jpg`} />
-
-                        
+                        <p className="opacity">You will receive an email confirmation shortly.</p>
                     </div>
+
+                    {cartItems.length ? (
+                        <div className="cart-inventory">
+                            <div className="cart-inventory-extra">
+                                <img src={`../../assets/cart/image-${cartItems[0].slug}.jpg`} />
+
+                                <div className="cart-inventory-name-price-container">
+                                    <p className="cart-inventory-name">{cartItems[0].name}</p>
+
+                                    <p className="cart-inventory-price">$ {cartItems[0].price}</p>
+                                </div>
+
+                                <p className="quantity opacity fw-700">x{cartItems[0].quantity}</p>
+                            </div>
+
+                            <div className="cart-inventory-other-items">
+                                <p className="sub-title opacity">
+                                    and {cartItems.length - 1 === 0 ? "no" : cartItems.length - 1} other item(s)
+                                </p>
+                            </div>
+
+                            <div className="grand-total">
+                                <p className="opacity">GRAND TOTAL</p>
+
+                                <h6>$ {cartTotal + 50}</h6>
+                            </div>
+                        </div>
+                        ) : null}
+
+                    <NavLink to="/">
+                        <button className="button-1">
+                            BACK TO HOME
+                        </button>
+                    </NavLink>
                 </div>
-            </div>
+            )}
         </div>
     )
 }
