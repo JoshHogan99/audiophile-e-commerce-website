@@ -48,20 +48,23 @@
     gap: 2rem;
 }
 
-.checkout-form form .sub-title{
-    margin-bottom: -8px;
-}
-
 .checkout-form form .inner{
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
-.checkout-form form .inner label{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem
+.checkout-form form .sub-title{
+    margin-bottom: -8px;
+}
+
+.checkout-form form span{
+    color: var(--red);
+    margin-left: 0.125rem;
+}
+
+.checkout-form form .inner label input{
+    margin-top: 0.5rem;
 }
 
 .checkout-form form label{

@@ -49,7 +49,7 @@ export default function Cart({handleCart}) {
 
                 <button 
                     className="cart-intro-button"
-                    onClick={() => handleCartClear()}
+                    onClick={handleCartClear}
                 >
                     Remove All
                 </button>

@@ -269,7 +269,7 @@ input[type="text"]:active{
     border: 1px solid var(--orange);
 }
 
-input:required{
+input:required:user-invalid{
     border: 2px solid var(--red);
 }
 

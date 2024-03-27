@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react"
-import {NavLink} from "react-router-dom"
+import {NavLink, Navigate} from "react-router-dom"
 
 import "./Checkout.css"
 
@@ -12,11 +12,13 @@ export default function Checkout() {
     const [cashDelivery, setCashDelivery] = useState(false)
     const [data, setData] = useState([])
     const [showCheckout, setShowCheckout] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const storedCartItems = JSON.parse(localStorage.getItem("cart")) || []
 
         setCartItems(storedCartItems)
+        setLoading(false)
     }, [])
 
     useEffect(() => {
@@ -45,6 +47,14 @@ export default function Checkout() {
         localStorage.removeItem("cart")
     }
 
+    if(loading){
+        return <h2>Loading...</h2>
+    }
+
+    if(cartItems.length < 1){
+        return <Navigate to="/" replace={true} />
+    }
+
     return(
         <div className="checkout-container">
             <NavLink
@@ -63,20 +73,20 @@ export default function Checkout() {
                         <p className="sub-title orange">BILLING DETAILS</p>
 
                         <label>
-                            Name
+                            Name <span>*</span>
 
                             <input required type="text" id="name" name="name" autoComplete="name" placeholder="Alexei Ward" />
                         </label>
                         
 
                         <label>
-                            Email Address
+                            Email Address <span>*</span>
 
                             <input required type="email" id="email" name="email" autoComplete="email" placeholder="alexei@mail.com" />
                         </label>
 
                         <label>
-                            Phone Number
+                            Phone Number <span>*</span>
 
                             <input required type="tel" id="tel" name="tel" autoComplete="tel" placeholder="+1 202-555-0136" />
                         </label>
@@ -87,25 +97,25 @@ export default function Checkout() {
                         <p className="sub-title orange">SHIPPING INFO</p>
 
                         <label>
-                            Your Address
+                            Your Address <span>*</span>
 
                             <input required type="text" id="address" name="address" autoComplete="on" placeholder="1137 Williams Avenue" />
                         </label>
 
                         <label>
-                            ZIP Code
+                            ZIP Code <span>*</span>
 
                             <input required type="text" id="zip-code" name="zip-code" autoComplete="postal-code" placeholder="10001" />
                         </label>
 
                         <label>
-                            City
+                            City <span>*</span>
 
                             <input required type="text" id="city" name="city" autoComplete="address-level2" placeholder="New York" />
                         </label>
 
                         <label>
-                            Country
+                            Country <span>*</span>
 
                             <input required type="text" id="country" name="country" autoComplete="country" placeholder="United States" />
                         </label>
@@ -114,7 +124,7 @@ export default function Checkout() {
                     <div className="form-payment">
                         <p className="sub-title orange">PAYMENT DETAILS</p>
 
-                        <p className="sub-title">Payment Method</p>
+                        <p className="sub-title">Payment Method <span>*</span></p>
 
                         <label 
                             className="radio" 
