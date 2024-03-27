@@ -1,23 +1,37 @@
 import React from "react"
 
-import bestGearLogo from "../../assets/shared/mobile/image-best-gear.jpg"
+import bestGearMobile from "../../assets/shared/mobile/image-best-gear.jpg"
+import bestGearTablet from "../../assets/shared/tablet/image-best-gear.jpg"
+import bestGearDesktop from "../../assets/shared/desktop/image-best-gear.jpg"
 
 import "./BestGear.css"
 
 export default function BestGear(){
     return(
-        <div className="best-gear-container">
+        <div id="best-gear">
             <img
-                src={bestGearLogo}
-                alt="Best Gear Logo" 
-                className="best-gear-img"
+                src={bestGearMobile}
+                alt="Man wearing headphones looking to the side" 
+                className="mobile-img"
             />
 
-            <p className="best-gear-title">
-                BRINGING YOU THE <span className="gold">BEST</span> AUDIO GEAR
+            <img
+                src={bestGearTablet}
+                alt="Man wearing headphones looking to the side" 
+                className="tablet-img"
+            />
+
+            <img
+                src={bestGearDesktop}
+                alt="Man wearing headphones looking to the side" 
+                className="desktop-img"
+            />
+
+            <p className="title">
+                BRINGING YOU THE <span>BEST</span> AUDIO GEAR
             </p>
 
-            <p className="best-gear-info">
+            <p className="desc">
                 Located at the heart of New York City, 
                 Audiophile is the premier store for high end headphones, 
                 earphones, speakers, and audio accessories. 

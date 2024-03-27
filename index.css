@@ -1,4 +1,4 @@
-* {
+*{
     box-sizing: border-box;
 }
 
@@ -15,7 +15,7 @@
 }
 
 html,
-body {
+body{
     margin: 0;
     padding: 0;
     -webkit-user-drag: none;
@@ -33,136 +33,48 @@ p{
     padding: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6{
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
 a{
     color: inherit;
     text-decoration: none;
 }
 
-h1{
-    font-size: 3.5rem;
-    line-height: 3.625rem; /* 103.571% */
-    letter-spacing: 0.125rem;
-}
-
-h2{
-    font-size: 2.5rem;
-    line-height: 2.75rem; /* 110% */
-    letter-spacing: 0.0893125rem;
-}
-
-h3{
-    font-size: 2rem;
-    line-height: 2.25rem; /* 112.5% */
-    letter-spacing: 0.0714375rem;
-}
-
-h4{
-    font-size: 1.75rem;
-    line-height: normal;
-    letter-spacing: 0.125rem;
-}
-
-h5{
-    font-size: 1.5rem;
-    line-height: normal;
-    letter-spacing: 0.107125rem;
-}
-
-h6{
-    font-size: 1.125rem;
-    line-height: normal;
-    letter-spacing: 0.080375rem;
-}
-
-
 .overline{
     font-size: 0.875rem;
     font-weight: 400;
-    line-height: normal;
     letter-spacing: 0.625rem;
-}
-
-.sub-title{
-    font-size: 0.8125rem;
-    font-weight: 700;
-    line-height: 1.5625rem; /* 192.308% */
-    letter-spacing: 0.0580625rem;
-}
-
-p{
-    font-size: 0.9375rem;
-    font-weight: 400;
-    line-height: 1.5625rem; /* 166.667% */
-}
-
-.opacity{
-    opacity: 0.5;
-}
-
-.fw-700{
-    font-weight: 700;
-}
-
-.orange{
-    color: var(--orange);
-}
-
-.radius{
-    border-radius: 8px;
-}
-
-img{
-    user-select: none;
+    text-transform: uppercase;
 }
 
 button{
     font-family: "Manrope", sans-serif;
-    cursor: pointer;
-    font-size: 0.8125rem;
-    font-weight: 700;
-    letter-spacing: 0.0625rem;
     text-transform: uppercase;
-}
-
-.button-1,
-.button-2{
-    width: 160px;
-    height: 48px;
-    flex-shrink: 0;
-}
-
-.button-1,
-.button-3{
-    border: none;
-}
-
-.button-2,
-.button-3{
-    color: var(--black);
-    background: transparent;
+    cursor: pointer;
 }
 
 .button-1{
+    width: 160px;
+    height: 48px;
     background: var(--orange);
     color: var(--white);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.0625rem;
+    border: none;
 }
 
 .button-1:hover{
-    background: var(--active-orange);
+    background: #FBAF85;
 }
 
 .button-2{
+    width: 160px;
+    height: 48px;
     border: 1px solid var(--black);
+    background: transparent;
+    color: var(--black);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.0625rem;
 }
 
 .button-2:hover{
@@ -170,32 +82,19 @@ button{
     color: var(--white);
 }
 
-.button-3:hover{
-    color: var(--orange);
-    opacity: 1;
-}
-
-.numbers-default{
-    width: 120px;
-    height: 48px;
-    flex-shrink: 0;
-    background: var(--gray);
-    margin-right: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.numbers-default button{
-    border: none;
-    opacity: 0.25;
-    cursor: pointer;
-}
-
-.numbers-default p{
+.button-3{
+    background: transparent;
+    color: var(--black);
     font-size: 0.8125rem;
     font-weight: 700;
     letter-spacing: 0.0625rem;
+    border: none;
+    opacity: 0.5;
+}
+
+.button-3:hover{
+    color: var(--orange);
+    opacity: 1;
 }
 
 .visible{
@@ -212,69 +111,4 @@ button{
 
 .desktop-img{
     display: none;
-}
-
-label{
-    color: var(--black);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: -0.01337rem;
-}
-
-input,
-.radio{
-    color: var(--black);
-    font-size: 0.875rem;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -0.015625rem;
-}
-
-input::placeholder{
-    opacity: 0.4;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-.radio{
-    width: 280px;
-    height: 56px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    border: 1px solid var(--off-gray);
-    background: var(--white);
-    padding-left: 1.5rem;
-}
-
-.radio{
-    padding: 0.85rem 1rem 1rem;
-}
-
-input[type="radio"]{
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    opacity: 0.5;
-    vertical-align: bottom;
-    margin-right: 1rem;
-}
-
-input[type="radio"]:checked{
-    accent-color: var(--orange);
-    opacity: 1.0;
-}
-
-input[type="text"]:active{
-    border: 1px solid var(--orange);
-}
-
-input:required:user-invalid{
-    border: 2px solid var(--red);
-}
-
-@media(min-width: 768px){
-    input[type="text"]{
-        width: 309px;
-    }
 }

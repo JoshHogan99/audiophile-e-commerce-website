@@ -1,29 +1,29 @@
-.best-gear-container{
+#best-gear{
     padding: 0 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
     text-align: center;
     margin: 7.5rem 0;
+    color: var(--black);
 }
 
-.best-gear-img{
+#best-gear .mobile-img{
     width: 327px;
     border-radius: 8px;
+    margin-bottom: 2.5rem;
 }
 
-.best-gear-title{
+#best-gear .title{
     font-size: 1.75rem;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.0625rem;
+    margin-bottom: 2rem;
 }
 
-.gold{
-    color: #D87D4A;
+#best-gear span{
+    color: var(--orange);
 }
 
-.best-gear-info{
+#best-gear desc{
     font-size: 0.9375rem;
-    line-height: 25px; /* 166.667% */
+    line-height: 1.5625rem; /* 166.667% */
     opacity: 0.5;
 }

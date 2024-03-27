@@ -1,57 +1,42 @@
-.category-container{
+#category{
     padding: 0 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 4.25rem;
 }
 
-.category{
+#category div{
     padding: 5.5rem 0 1.375rem;
     position: relative;
     border-radius: 8px;
     background: #F1F1F1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
 }
 
-.category .category-img{
+#category .img{
     position: absolute;
-    top: -20%;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.category-img{
+#category .headphones{
     width: 140px;
+    top: -32%;
 }
 
-.category .earphones{
-    top: -10%;
+#category .speakers{
+    width: 160px;
+    top: -30%;
 }
 
-.category-name{
+#category .earphones{
+    width: 180px;
+    top: -30%;
+}
+
+#category p{
     font-size: 0.9375rem;
     font-weight: 700;
-    letter-spacing: 1.071px;
-    text-transform: uppercase;
+    letter-spacing: 0.0669375rem;
     margin-bottom: 1rem;
-}
-
-.category-shop{
-    font-size: 0.8125rem;
-    text-decoration: none;
-    display: flex;
-    gap: 0.5rem;
-}
-
-.category-shop-text{
-    color: #000;
-    font-weight: 700;
-    letter-spacing: 1px;
-    opacity: 0.5;
-}
-
-span{
-    margin-top: 0.05rem;
 }

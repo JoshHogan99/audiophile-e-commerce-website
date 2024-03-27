@@ -4,25 +4,25 @@ import {NavLink} from "react-router-dom"
 import Category from "../../components/Category/Category.jsx"
 import BestGear from "../../components/BestGear/BestGear.jsx"
 
-import featuredZX9SpeakerMobile from "../../assets/home/mobile/image-speaker-zx9.png"
-import featuredZX9SpeakerTablet from "../../assets/home/tablet/image-speaker-zx9.png"
-import featuredZX9SpeakerDesktop from "../../assets/home/desktop/image-speaker-zx9.png"
+import ZX9SpeakersMobile from "../../assets/home/mobile/image-speaker-zx9.png"
+import ZX9SpeakersTablet from "../../assets/home/tablet/image-speaker-zx9.png"
+import ZX9SpeakersDesktop from "../../assets/home/desktop/image-speaker-zx9.png"
 
-import featuredYX1EarphonesMobile from "../../assets/home/mobile/image-earphones-yx1.jpg"
-import featuredYX1EarphonesTablet from "../../assets/home/tablet/image-earphones-yx1.jpg"
-import featuredYX1EarphonesDesktop from "../../assets/home/desktop/image-earphones-yx1.jpg"
+import YX1EarphonesMobile from "../../assets/home/mobile/image-earphones-yx1.jpg"
+import YX1EarphonesTablet from "../../assets/home/tablet/image-earphones-yx1.jpg"
+import YX1EarphonesDesktop from "../../assets/home/desktop/image-earphones-yx1.jpg"
 
 import './Home.css'
 
 export default function Home(){
     return(
-        <div className="home">
-            <div className="sponsored-product-container"> 
-                <p className="sponsored-product-new">NEW PRODUCT</p>
+        <div id="home">
+            <div className="featured-product"> 
+                <p className="overline">NEW PRODUCT</p>
 
-                <p className="sponsored-product-name">XX99 MARK II HEADPHONES</p>
+                <h1>XX99 MARK II HEADPHONES</h1>
 
-                <p className="sponsored-product-description">
+                <p className="desc">
                     Experience natural, lifelike audio and exceptional 
                     build quality made for the passionate music enthusiast.
                 </p>
@@ -36,93 +36,87 @@ export default function Home(){
 
             <Category />
 
-            <div className="featured-products-container">
-                <div className="featured-product-one">
+            <div className="featured-products">
+                <div className="product-one">
                     <div className="oval-one"></div>
 
                     <div className="oval-two"></div>
+
+                    <div className="oval-three"></div>
                     
-                    <div className="featured-product-img-one-container">
-                        <img 
-                            src={featuredZX9SpeakerMobile}
-                            alt="Speaker Logo"
-                            className="featured-product-img-one mobile-img"
-                        />
+                    <img 
+                        src={ZX9SpeakersMobile}
+                        alt="ZX9 Speakers"
+                        className="mobile-img"
+                    />
 
-                        <img 
-                            src={featuredZX9SpeakerTablet}
-                            alt="Speaker Logo"
-                            className="featured-product-img-one tablet-img"
-                        />
+                    <img 
+                        src={ZX9SpeakersTablet}
+                        alt="ZX9 Speakers"
+                        className="tablet-img"
+                    />
 
-                        <img 
-                            src={featuredZX9SpeakerDesktop}
-                            alt="Speaker Logo"
-                            className="featured-product-img-one desktop-img"
-                        />
-                    </div>
+                    <img 
+                        src={ZX9SpeakersDesktop}
+                        alt="ZX9 Speakers"
+                        className="desktop-img"
+                    />
 
-                    <div className="featured-product-info-one-container">
-                        <p className="featured-product-name-one">
-                            ZX9 <span>SPEAKER</span>
-                        </p>
+                    <h2>
+                        ZX9 <span>SPEAKER</span>
+                    </h2>
 
-                        <p className="featured-product-desc-one">
-                            Upgrade to premium speakers that are 
-                            phenomenally built to deliver truly 
-                            remarkable sound.
-                        </p>
+                    <p>
+                        Upgrade to premium speakers that are 
+                        phenomenally built to deliver truly 
+                        remarkable sound.
+                    </p>
 
-                        <NavLink>
-                            <button className="button-1">
-                                SEE PRODUCT
-                            </button>
-                        </NavLink>
-                    </div>
+                    <NavLink to="/speakers/zx9-speaker">
+                        <button className="button-2">
+                            SEE PRODUCT
+                        </button>
+                    </NavLink>
                 </div>
 
-                <div className="featured-product-two">
-                    <div className="featured-product-info-two">
-                        <p className="featured-product-name-two">
-                            ZX7 SPEAKER
-                        </p>
+                <div className="product-two">
+                    <h3>
+                        ZX7 SPEAKER
+                    </h3>
 
-                        <NavLink>
-                            <button className="button-1">
-                                SEE PRODUCT
-                            </button>
-                        </NavLink>
-                    </div>
+                    <NavLink to="/speakers/zx7-speaker">
+                        <button className="button-2">
+                            SEE PRODUCT
+                        </button>
+                    </NavLink>
                 </div>
 
-                <div className="featured-product-three">
-                    <div className="featured-product-img-three-container">
-                        <img
-                            src={featuredYX1EarphonesMobile}
-                            alt="Earphones Logo"
-                            className="featured-product-img-three mobile-img"
-                        />
+                <div className="product-three">
+                    <img
+                        src={YX1EarphonesMobile}
+                        alt="YX1 Earphones"
+                        className="mobile-img"
+                    />
 
-                        <img 
-                            src={featuredYX1EarphonesTablet}
-                            alt="Earphones Logo"
-                            className="featured-product-img-three tablet-img"
-                        />
+                    <img 
+                        src={YX1EarphonesTablet}
+                        alt="YX1 Earphones"
+                        className="tablet-img"
+                    />
 
-                        <img 
-                            src={featuredYX1EarphonesDesktop}
-                            alt="Earphones Logo"
-                            className="featured-product-img-three desktop-img"
-                        />
-                    </div>
+                    <img 
+                        src={YX1EarphonesDesktop}
+                        alt="YX1 Earphones"
+                        className="desktop-img"
+                    />
 
-                    <div className="featured-product-info-three">
-                        <p className="featured-product-name-three">
+                    <div className="info">
+                        <h4>
                             YX1 EARPHONES
-                        </p>
+                        </h4>
 
-                        <NavLink>
-                            <button className="button-1">
+                        <NavLink to="/earphones/yx1-earphones">
+                            <button className="button-2">
                                 SEE PRODUCT
                             </button>
                         </NavLink>
