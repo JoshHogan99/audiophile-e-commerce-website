@@ -1,4 +1,4 @@
-.cart-container{
+#cart{
     position: fixed;
     z-index: 10;
     top: 54%;
@@ -7,142 +7,85 @@
     background: #fff;
     border-radius: 8px;
     padding: 2rem 1.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    min-width: 90%;
 }
 
-.cart-intro-container{
+#cart .heading{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 2rem;
 }
 
-.cart-intro-name{
-    color: #000;
-    font-family: Manrope;
-    font-size: 18px;
-    font-style: normal;
+#cart .heading .label{
+    font-size: 1.125rem;
     font-weight: 700;
-    line-height: normal;
-    letter-spacing: 1.286px;
-    text-transform: uppercase;
+    letter-spacing: 0.080375rem;
 }
 
-.cart-intro-button{
-    color: #000;
-font-family: Manrope;
-font-size: 15px;
-font-style: normal;
-font-weight: 400;
-line-height: 25px; /* 166.667% */
-text-decoration-line: underline;
-border: none;
-background: transparent;
-opacity: 0.5;
+#cart .heading button{
+    font-size: 0.9375rem;
+    line-height: 1.5625rem; /* 166.667% */
+    text-decoration-line: underline;
+    border: none;
+    background: transparent;
+    opacity: 0.5;
 }
 
-.cart-inventory-container{
+#cart .products{
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
-.cart-inventory{
+#cart .products .product{
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
-.cart-inventory img{
+#cart .products .product img{
     width: 64px;
     border-radius: 8px;
+    margin-right: 1rem;
 }
 
-.cart-inventory-name-price-container{
+#cart .products .product .name{
+    font-size: 0.9375rem;
+    line-height: 1.5625rem; /* 166.667% */
+    margin: auto auto auto 0;
+    letter-spacing: normal;
 }
 
-.cart-inventory-name{
-    color: #000;
-    font-family: Manrope;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 25px; /* 166.667% */
-}
-
-.cart-inventory-price{
-    color: #000;
-    font-family: Manrope;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 25px; /* 178.571% */
+#cart .products .product span{
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.5625rem; /* 178.571% */
     opacity: 0.5;
 }
 
-.cart-quantity-button{
-    padding: 0.5rem;
+#cart .products .product .numbers-default{
     width: 96px;
     height: 32px;
-    background: #F1F1F1;
+}
+
+#cart .total{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1.5rem;
 }
 
-.cart-quantity-button button,
-.cart-quantity-button p{
-    font-family: Manrope;
-    font-size: 0.8125rem;
-    font-weight: 700;
-    letter-spacing: 0.0625rem;
-}
-
-.cart-quantity-button button{
-    border: none;
-    opacity: 0.25;
-    cursor: pointer;
-}
-
-.cart-total-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.cart-total-text{
-    color: #000;
-    font-family: Manrope;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 25px; /* 166.667% */
+#cart .total .label{
+    font-size: 0.9375rem;
+    line-height: 1.5625rem; /* 166.667% */
     opacity: 0.5;
 }
 
-.cart-total-price{
-    color: #000;
-    text-align: center;
-    font-family: Manrope;
-    font-size: 18px;
-    font-style: normal;
+#cart .total .price{
+    font-size: 1.125rem;
     font-weight: 700;
-    line-height: normal;
-    text-transform: uppercase;
 }
 
-.checkout-button{
-    background: #D87D4A;
-    width: 271px;
-    height: 48px;
-    border: none;
-    color: #FFF;
-    text-align: center;
-    font-family: Manrope;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+#cart .button-1{
+    width: 100%;
 }

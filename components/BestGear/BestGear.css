@@ -1,5 +1,4 @@
 #best-gear{
-    padding: 0 1.5rem;
     text-align: center;
     margin: 7.5rem 0;
     color: var(--black);
@@ -22,7 +21,7 @@
     color: var(--orange);
 }
 
-#best-gear desc{
+#best-gear .desc{
     font-size: 0.9375rem;
     line-height: 1.5625rem; /* 166.667% */
     opacity: 0.5;

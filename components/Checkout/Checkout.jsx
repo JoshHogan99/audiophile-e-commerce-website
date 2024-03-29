@@ -56,11 +56,11 @@ export default function Checkout() {
     }
 
     return(
-        <div className="checkout-container">
+        <div id="checkout">
             <NavLink
                 to={`..`}
                 relative="path"
-                className="go-back-btn"
+                className="go-back"
             >
                 Go Back
             </NavLink>

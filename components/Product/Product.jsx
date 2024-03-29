@@ -43,21 +43,21 @@ export default function Product(){
     }, [id])
 
     if(loading){
-        return <h2>Loading...</h2>
+        return <p className="issue">Loading...</p>
     }
     
     if(error){
-        return <h2>There was an error: {error.message}</h2>
+        return <p className="issue">There was an error: {error.message}</p>
     }
 
     const includesElement = product ? product.includes.map((includesInfo, index) => {
         return(
-            <div key={index} className="selected-product-includes-info">
-                <p className="selected-product-includes-quantity">
+            <div key={index} className="includes">
+                <p className="quantity">
                     {includesInfo.quantity}x
                 </p>
 
-                <p className="selected-product-includes-item">
+                <p className="item">
                     {includesInfo.item}
                 </p>
             </div>
@@ -68,26 +68,26 @@ export default function Product(){
 
     const othersElement = product ? product.others.map((othersInfo, index) => {
         return(
-            <div key={index} className="selected-product-others-info">
+            <div key={index} className="others">
                 <img 
                     src={`../.${othersInfo.image.mobile}`} 
                     alt={othersInfo.slug}
-                    className="mobile" 
+                    className="mobile-img" 
                 />
 
                 <img 
                     src={`../.${othersInfo.image.tablet}`} 
                     alt={othersInfo.slug}
-                    className="tablet" 
+                    className="tablet-img" 
                 />
 
                 <img 
                     src={`../.${othersInfo.image.desktop}`} 
                     alt={othersInfo.slug}
-                    className="desktop" 
+                    className="desktop-img" 
                 />
 
-                <p className="selected-product-others-name">
+                <p className="name">
                     {othersInfo.name}
                 </p>
 
@@ -116,162 +116,146 @@ export default function Product(){
     }
 
     return(
-        <div className="selected-products-container">
+        <div id="product">
             <NavLink
                 to={`..`}
                 relative="path"
-                className="go-back-btn"
+                className="go-back"
             >
                 Go Back
             </NavLink>
 
             {product && (
-                <div className="selected-product">
+                <div className="product">
                     <img 
                         src={`../.${product.image.mobile}`}
-                        alt={`${product.name} Logo`} 
-                        className="selected-product-img mobile"
+                        alt={product.name} 
+                        className="mobile-img"
                     />
 
                     <img 
                         src={`../.${product.image.tablet}`} 
-                        alt={`${product.name} Logo`} 
-                        className="selected-product-img tablet" 
+                        alt={product.name}
+                        className="tablet-img" 
                     />
 
                     <img 
                         src={`../.${product.image.desktop}`} 
-                        alt={`${product.name} Logo`} 
-                        className="selected-product-img desktop" 
+                        alt={product.name}
+                        className="desktop-img" 
                     />
 
-                    <div className="selected-product-info">
-                        {product.new ? <p className="new-product">NEW PRODUCT</p> : null}
+                    {product.new ? <p className="overline">NEW PRODUCT</p> : null}
 
-                        <p className="selected-product-name">{product.name}<span> {product.category}</span></p>
+                    <h1 className="name">{product.name}<span> {product.category}</span></h1>
 
-                        <p className="selected-product-desc">{product.description}</p>
+                    <p className="desc">{product.description}</p>
 
-                        <p className="selected-product-price">$ {product.price.toLocaleString()}</p>
-            
-                        <div className="quantity-container">
-                            <div className="numbers-default">
-                                <button 
-                                    onClick={subtractQuantity}
-                                    disabled={quantity === 1}
-                                    style={subtractButtonStyles}
-                                >
-                                    -
-                                </button>
+                    <p className="price">$ {product.price.toLocaleString()}</p>
+        
+                    <div className="numbers-container">
+                        <div className="numbers-default">
+                            <button
+                                onClick={subtractQuantity}
+                                disabled={quantity === 1}
+                                style={subtractButtonStyles}
+                            >
+                                -
+                            </button>
 
-                                <p>{quantity}</p>
-
-                                <button 
-                                    onClick={addQuantity}
-                                    disabled={quantity === 5}
-                                    style={addButtonStyles}
-                                >
-                                    +
-                                </button>    
-                            </div>
+                            <p className="quantity">{quantity}</p>
 
                             <button 
-                                className="button-1"
-                                onClick={() => handleCart(
-                                    product.slug,
-                                    product.name,
-                                    product.price,
-                                    quantity
-                                )}
+                                onClick={addQuantity}
+                                disabled={quantity === 5}
+                                style={addButtonStyles}
                             >
-                                ADD TO CART
-                            </button>
+                                +
+                            </button>   
                         </div>
 
-                        <div className="selected-product-features-container">
-                            <p className="selected-product-features-title">FEATURES</p>
-
-                            <p 
-                                className="selected-product-features-info" 
-                                dangerouslySetInnerHTML={{__html: formattedFeatures}}
-                            >
-                            </p>
-                        </div>
-
-                        <div className="selected-product-includes-container">
-                            <p className="selected-product-includes-title">IN THE BOX</p>
-
-                            <div className="selected-product-includes-info-container">
-                                {includesElement} 
-                            </div>
-                        </div>
-
-                        <div className="selected-product-gallery-container">
-                            <img 
-                                src={`../.${product.gallery.first.mobile}`} 
-                                alt="Gallery Logo One"
-                                className="mobile" 
-                            />
-
-                            <img 
-                                src={`../.${product.gallery.first.tablet}`} 
-                                alt="Gallery Logo One"
-                                className="tablet" 
-                            />
-
-                            <img 
-                                src={`../.${product.gallery.first.desktop}`} 
-                                alt="Gallery Logo One"
-                                className="desktop" 
-                            />
-
-                            <img 
-                                src={`../.${product.gallery.second.mobile}`} 
-                                alt="Gallery Logo Two"
-                                className="mobile" 
-                            />
-
-                            <img 
-                                src={`../.${product.gallery.second.tablet}`} 
-                                alt="Gallery Logo Two"
-                                className="tablet" 
-                            />
-
-                            <img 
-                                src={`../.${product.gallery.second.desktop}`} 
-                                alt="Gallery Logo Two"
-                                className="desktop" 
-                            />
-
-                            <img 
-                                src={`../.${product.gallery.third.mobile}`} 
-                                alt="Gallery Logo Three"
-                                className="mobile" 
-                            />
-
-                            <img 
-                                src={`../.${product.gallery.third.tablet}`} 
-                                alt="Gallery Logo Three"
-                                className="tablet" 
-                            />
-
-                            <img 
-                                src={`../.${product.gallery.third.desktop}`} 
-                                alt="Gallery Logo Three"
-                                className="desktop" 
-                            />
-                        </div>
-
-                        <div className="selected-product-others-container">
-                            <p className="selected-product-others">
-                                YOU MAY ALSO LIKE
-                            </p>
-
-                            <div className="selected-product-others-info-container">
-                                {othersElement}
-                            </div>
-                        </div>
+                        <button 
+                            className="button-1"
+                            onClick={() => handleCart(
+                                product.slug,
+                                product.cart,
+                                product.price,
+                                quantity
+                            )}
+                        >
+                            ADD TO CART
+                        </button>
                     </div>
+
+                    <h2>FEATURES</h2>
+
+                    <p 
+                        dangerouslySetInnerHTML={{__html: formattedFeatures}}
+                        className="features"
+                    >
+                    </p>
+
+                    <h3>IN THE BOX</h3>
+
+                    {includesElement}
+
+                    <img 
+                        src={`../.${product.gallery.first.mobile}`} 
+                        alt="Man wearing headphones looking to the side"
+                        className="mobile-img" 
+                    />
+
+                    <img 
+                        src={`../.${product.gallery.first.tablet}`} 
+                        alt="Man wearing headphones looking to the side"
+                        className="tablet-img" 
+                    />
+
+                    <img 
+                        src={`../.${product.gallery.first.desktop}`} 
+                        alt="Man wearing headphones looking to the side"
+                        className="desktop-img" 
+                    />
+
+                    <img 
+                        src={`../.${product.gallery.second.mobile}`} 
+                        alt="Headphones on table"
+                        className="mobile-img" 
+                    />
+
+                    <img 
+                        src={`../.${product.gallery.second.tablet}`} 
+                        alt="Headphones on table"
+                        className="tablet-img" 
+                    />
+
+                    <img 
+                        src={`../.${product.gallery.second.desktop}`} 
+                        alt="Headphones on table"
+                        className="desktop-img" 
+                    />
+
+                    <img 
+                        src={`../.${product.gallery.third.mobile}`} 
+                        alt="Headphones earcups"
+                        className="mobile-img" 
+                    />
+
+                    <img 
+                        src={`../.${product.gallery.third.tablet}`} 
+                        alt="Headphones earcups"
+                        className="tablet-img" 
+                    />
+
+                    <img 
+                        src={`../.${product.gallery.third.desktop}`} 
+                        alt="Headphones earcups"
+                        className="desktop-img" 
+                    />
+
+                    <h4>YOU MAY ALSO LIKE</h4>
+
+                    {othersElement}
                 </div>
             )}
 

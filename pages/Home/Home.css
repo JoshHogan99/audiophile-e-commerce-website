@@ -1,3 +1,7 @@
+#home{
+    padding: 0 1.5rem;
+}
+
 #home .featured-product{
     background: url("../../assets/home/mobile/image-header.jpg") no-repeat;
     background-size: cover;
@@ -8,6 +12,8 @@
     color: var(--white);
     padding: 6.75rem 1.5rem 7rem;
     margin-bottom: 5.75rem;
+    margin-left: calc(-1.5rem);
+    margin-right: calc(-1.5rem);
 }
 
 #home .overline{
@@ -36,7 +42,6 @@
 }
 
 #home .featured-products{
-    padding: 0 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;

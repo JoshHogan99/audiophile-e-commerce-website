@@ -1,197 +1,105 @@
-.selected-products-container{
-    overflow: hidden;
-    padding-top: 1rem;
+#product{
+    padding: 1rem 1.5rem 0;
 }
 
-.go-back-btn{
-    color: #000;
-    font-size: 0.9375rem;
-    line-height: 1.5625rem; /* 166.667% */
+#product .go-back{
     opacity: 0.5;
-    text-decoration: none;
-    margin-left: 1.5rem;
 }
 
-.selected-products-banner{
-    padding: 2rem 5.25rem;
-    margin-bottom: 4rem;
-    background: #000;
-    color: #fff;
+#product .product{
+    margin-top: 1.5rem;
 }
 
-.selected-products-banner h1{
-    display: flex;
-    justify-content: center;
-    font-size: 1.75rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.selected-product-container{
-    display: flex;
-    flex-direction: column;
-    gap: 7.5rem;
-    margin-bottom: 10.75rem;
-}
-
-.selected-product{
-    padding: 0 1.5rem;
-    margin: 1rem 0 10.75rem;
-}
-
-.selected-product-img{
+#product .mobile-img:nth-of-type(1){
     margin-bottom: 2rem;
-    border-radius: 8px;
 }
 
-.selected-product .mobile{
-    width: 327px;
-}
-
-.selected-product .tablet,
-.selected-product .desktop{
-    display: none;
-}
-
-.selected-product-info{
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    gap: 1.5rem;
-}
-
-.new-product{
-    color: #D87D4A;
-    font-size: 0.875rem;
-    letter-spacing: 10px;
-}
-
-.selected-product-name{
-    font-size: 1.75rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.selected-product-name span{
-    display: block;
-}
-
-.selected-product-desc{
-    font-size: 0.9375rem;
-    line-height: 25px; /* 166.667% */
-    opacity: 0.5;
-}
-
-.selected-product-price{
+#product .price{
     font-size: 1.125rem;
-    font-style: normal;
     font-weight: 700;
-    letter-spacing: 0.08037rem;
+    letter-spacing: 0.080375rem;
+    margin-bottom: 2rem;
 }
 
-.quantity-container{
+#product .product .numbers-container{
     display: flex;
-    align-items: center;
+    gap: 1rem;
+    margin-bottom: 5.5rem;
 }
 
-.selected-product-features-container{
-    margin-bottom: 4rem;
-}
-
-.selected-product-features-title{
-    margin-bottom: 1.5rem;
+#product h2,
+#product h3{
     font-size: 1.5rem;
-    font-weight: 700;
     line-height: 2.25rem; /* 150% */
     letter-spacing: 0.0535625rem;
-}
-
-.selected-product-features-info{
-    font-size: 0.9375rem;
-    line-height: 1.5625rem; /* 166.667% */
-    opacity: 0.5;
-}
-
-.selected-product-includes-title{
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 2.25rem; /* 150% */
-    letter-spacing: 0.05356rem;
     margin-bottom: 1.5rem;
 }
 
-.selected-product-includes-container{
-    margin-bottom: 4rem;
-}
-
-.selected-product-includes-info-container{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.selected-product-includes-info{
-    display: flex;
-    gap: 1.5rem;
-}
-
-.selected-product-includes-quantity{
-    color: #D87D4A;
-    font-size: 0.9375rem;
-    font-weight: 700;
-    line-height: 1.5625rem; /* 166.667% */
-    width: 20px;
-}
-
-.selected-product-includes-item{
-    color: #000;
+#product .features{
     font-size: 0.9375rem;
     line-height: 1.5625rem; /* 166.667% */
     opacity: 0.5;
+    margin-bottom: 5.5rem;
 }
 
-.selected-product-gallery-container{
+#product .includes{
     display: flex;
-    flex-direction: column;
     gap: 1.5rem;
-    margin-bottom: 6rem;
+    margin-bottom: 0.5rem;
 }
 
-.selected-product-gallery-container img{
-    border-radius: 8px;
+#product .includes:nth-last-of-type(4){
+    margin-bottom: 5.5rem;
 }
 
-.selected-product-others{
-    margin-bottom: 2.5rem;
+#product .includes .quantity,
+#product .includes .item{
+    font-size: 0.9375rem;
+    line-height: 25px; /* 166.667% */
+}
+
+#product .includes .quantity{
+    width: 16px;
+    color: var(--orange);
+    font-weight: 700;
+}
+
+#product .includes .item{
+    font-weight: 400;
+    opacity: 0.5;
+}
+
+#product .mobile-img{
+    margin-bottom: 1rem;
+}
+
+#product h4,
+#product .others .name{
     text-align: center;
     font-size: 1.5rem;
     font-weight: 700;
+}
+
+#product h4{
     line-height: 2.25rem; /* 150% */
-    letter-spacing: 0.05356rem;
+    letter-spacing: 0.0535625rem;
+    margin: 6.5rem 0 2.5rem;
 }
 
-.selected-product-others-info{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+#product .others{
+    text-align: center;
+    margin-bottom: 3.5rem;
 }
 
-.selected-product-others-info-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3.5rem
+#product .others .mobile-img{
+    margin-bottom: 2rem;
 }
 
-.selected-product-others-info-container img{
-    border-radius: 8px;
+#product .others .name{
+    letter-spacing: 0.107125rem;
+    margin-bottom: 2rem;
 }
 
-.selected-product-others-name{
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 0.1071rem;
-    text-transform: uppercase;
+#product .others:last-child{
+    margin-bottom: 10.75rem;
 }

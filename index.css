@@ -47,7 +47,6 @@ a{
 
 button{
     font-family: "Manrope", sans-serif;
-    text-transform: uppercase;
     cursor: pointer;
 }
 
@@ -97,6 +96,37 @@ button{
     opacity: 1;
 }
 
+.numbers-default{
+    color: var(--black);
+    width: 120px;
+    height: 48px;
+    flex-shrink: 0;
+    background: var(--gray);
+    padding: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.numbers-default button{
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.0625rem;
+    opacity: 0.25;
+    border: none;
+}
+
+.numbers-default button:hover{
+    color: var(--orange);
+    opacity: 1;
+}
+
+.numbers-default .quantity{
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.0625rem;
+}
+
 .visible{
     display: block;
 }
@@ -111,4 +141,40 @@ button{
 
 .desktop-img{
     display: none;
+}
+
+.issue{
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.0625rem;
+}
+
+.product .mobile-img{
+    width: 327px;
+    border-radius: 8px;
+}
+
+.product .overline,
+.product .name,
+.product .desc{
+    margin-bottom: 1.5rem;
+}
+
+
+.product .overline{
+    color: var(--orange);
+}
+
+.product .name{
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.0625rem;
+    text-transform: uppercase;
+}
+
+.product .desc{
+    font-size: 0.9375rem;
+    line-height: 1.5625rem; 
+    opacity: 0.5;
 }

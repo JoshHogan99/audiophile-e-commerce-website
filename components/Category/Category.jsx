@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom"
 import headphones from "../../assets/shared/desktop/image-category-thumbnail-headphones.png"
 import speakers from "../../assets/shared/desktop/image-category-thumbnail-speakers.png"
 import earphones from "../../assets/shared/desktop/image-category-thumbnail-earphones.png"
+
 import arrowIcon from "../../assets/shared/desktop/icon-arrow-right.svg"
 
 import "./Category.css"
