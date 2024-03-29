@@ -5,7 +5,7 @@ import "./Checkout.css"
 
 import iconOrderConfirmation from "../../assets/checkout/icon-order-confirmation.svg"
 
-export default function Checkout() {
+export default function Checkout(){
     const [cartItems, setCartItems] = useState([])
     const [cartTotal, setCartTotal] = useState(0)
     const [eMoney, setEMoney] = useState(false)
@@ -65,66 +65,60 @@ export default function Checkout() {
                 Go Back
             </NavLink>
 
-            <div className="checkout-form">
-                <h4>CHECKOUT</h4>
+            <div className="form">
+                <h1>CHECKOUT</h1>
 
                 <form id="myForm" onSubmit={handleSubmit}>
-                    <div className="form-billing inner">
-                        <p className="sub-title orange">BILLING DETAILS</p>
+                    <div className="details">
+                        <h2>BILLING DETAILS</h2>
 
                         <label>
-                            Name <span>*</span>
+                            <p>Name <span>*</span></p>
 
                             <input required type="text" id="name" name="name" autoComplete="name" placeholder="Alexei Ward" />
                         </label>
                         
-
                         <label>
-                            Email Address <span>*</span>
+                            <p>Email Address <span>*</span></p>
 
                             <input required type="email" id="email" name="email" autoComplete="email" placeholder="alexei@mail.com" />
                         </label>
 
                         <label>
-                            Phone Number <span>*</span>
+                            <p>Phone Number <span>*</span></p>
 
                             <input required type="tel" id="tel" name="tel" autoComplete="tel" placeholder="+1 202-555-0136" />
                         </label>
                         
-                    </div>
-
-                    <div className="form-shipping inner">
-                        <p className="sub-title orange">SHIPPING INFO</p>
+                        <h3>SHIPPING INFO</h3>
 
                         <label>
-                            Your Address <span>*</span>
+                            <p>Your Address <span>*</span></p>
 
                             <input required type="text" id="address" name="address" autoComplete="on" placeholder="1137 Williams Avenue" />
                         </label>
 
                         <label>
-                            ZIP Code <span>*</span>
+                            <p>ZIP Code <span>*</span></p>
 
                             <input required type="text" id="zip-code" name="zip-code" autoComplete="postal-code" placeholder="10001" />
                         </label>
 
                         <label>
-                            City <span>*</span>
+                            <p>City <span>*</span></p>
 
                             <input required type="text" id="city" name="city" autoComplete="address-level2" placeholder="New York" />
                         </label>
 
                         <label>
-                            Country <span>*</span>
+                            <p>Country <span>*</span></p>
 
                             <input required type="text" id="country" name="country" autoComplete="country" placeholder="United States" />
                         </label>
-                    </div>
 
-                    <div className="form-payment">
-                        <p className="sub-title orange">PAYMENT DETAILS</p>
+                        <h4>PAYMENT DETAILS</h4>
 
-                        <p className="sub-title">Payment Method <span>*</span></p>
+                        <p className="payment">Payment Method <span>*</span></p>
 
                         <label 
                             className="radio" 

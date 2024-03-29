@@ -1,7 +1,83 @@
 #checkout{
-
+    padding: 1rem 1.5rem 8.0625rem;
+    background: var(--off-white);
 }
 
 #checkout .go-back{
     opacity: 0.5;
+}
+
+#checkout .form{
+    margin-top: 1.5rem;
+    padding: 1.5rem 1.5rem 2rem;
+    background: var(--white);
+}
+
+#checkout .form h1{
+    font-size: 1.75rem;
+    letter-spacing: 0.0625rem;
+    margin-bottom: 1rem;
+}
+
+#checkout .form .details{
+    display: flex;
+    flex-direction: column;
+}
+
+#checkout .form .details h2,
+#checkout .form .details h3,
+#checkout .form .details h4{
+    color: var(--orange);
+    font-size: 0.8125rem;
+    line-height: 1.5625rem; /* 192.308% */
+    letter-spacing: 0.0580625rem;
+    margin: 0.5rem 0 1rem;
+}
+
+#checkout .form .details label{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#checkout .form .details label p{
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: -0.013375rem;
+}
+
+#checkout .form .details label p span{
+    color: var(--red);
+}
+
+#checkout .form .details label input{
+    height: 56px;
+    border-radius: 8px;
+    border: 1px solid #CFCFCF;
+    padding: 0 1.5rem;
+}
+
+#checkout .form .details label input::placeholder{
+    color: #000;
+    font-family: Manrope;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: -0.015625rem;
+    opacity: 0.4;
+}
+
+#checkout .form .details .payment{
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: -0.013375rem;
+    margin-bottom: 1rem;
+}
+
+#checkout .form .details .radio{
+    border-radius: 8px;
+}
+
+#checkout .form .details .radio input{
+    height: 20px;
 }
