@@ -11,6 +11,7 @@
     margin-top: 1.5rem;
     padding: 1.5rem 1.5rem 2rem;
     background: var(--white);
+    border-radius: 8px;
 }
 
 #checkout .form h1{
@@ -34,31 +35,36 @@
     margin: 0.5rem 0 1rem;
 }
 
-#checkout .form .details label{
+#checkout .form .details label,
+#checkout .form .e-money label{
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     margin-bottom: 1.5rem;
 }
 
-#checkout .form .details label p{
+#checkout .form .details label p,
+#checkout .form .e-money label p{
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: -0.013375rem;
 }
 
-#checkout .form .details label p span{
+#checkout .form .details label p span,
+#checkout .form .e-money label p span{
     color: var(--red);
 }
 
-#checkout .form .details label input{
+#checkout .form .details label input,
+#checkout .form .e-money label input{
     height: 56px;
     border-radius: 8px;
     border: 1px solid #CFCFCF;
     padding: 0 1.5rem;
 }
 
-#checkout .form .details label input::placeholder{
+#checkout .form .details label input::placeholder,
+#checkout .form .e-money label input::placeholder{
     color: #000;
     font-family: Manrope;
     font-size: 0.875rem;
@@ -76,8 +82,196 @@
 
 #checkout .form .details .radio{
     border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 56px;
+    padding: 0 1rem;
 }
 
 #checkout .form .details .radio input{
-    height: 20px;
+    width: 20px;
+}
+
+#checkout .form .details .radio input:checked{
+    accent-color: var(--orange);
+}
+
+#checkout .form .details .radio p{
+    font-size: 0.875rem;
+    letter-spacing: -0.015625rem;
+}
+
+#checkout .summary{
+    margin-top: 2rem;
+    padding: 2rem 1.5rem;
+    background: var(--white);
+    border-radius: 8px;
+}
+
+#checkout .summary h5{
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: 0.080375rem;
+    margin-bottom: 2rem;
+}
+
+#checkout .summary .products{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+#checkout .summary .products .product,
+#checkout .confirmation .inventory .product{
+    display: flex;
+    align-items: center;
+}
+
+#checkout .summary .products .product img,
+#checkout .confirmation .inventory .product img{
+    width: 64px;
+    border-radius: 8px;
+    margin-right: 1rem;
+}
+
+#checkout .summary .products .product .name,
+#checkout .confirmation .inventory .product .name{
+    font-size: 0.9375rem;
+    line-height: 1.5625rem; /* 166.667% */
+    margin: auto auto auto 0;
+    letter-spacing: normal;
+}
+
+#checkout .summary .products .product .name span,
+#checkout .confirmation .inventory .product .name span{ 
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.5625rem; /* 178.571% */
+    opacity: 0.5;
+}
+
+#checkout .summary .products .product .quantity,
+#checkout .confirmation .inventory .product .quantity{
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.5625rem; /* 166.667% */
+    opacity: 0.5;
+}
+
+#checkout .summary .additions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+#checkout .summary .additions .label{
+    font-size: 0.9375rem;
+    line-height: 1.5625rem; /* 166.667% */
+    opacity: 0.5;
+}
+
+#checkout .summary .additions .price{
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#checkout .summary .additions:last-of-type{
+    margin: 1rem 0 2rem;
+}
+
+#checkout .summary .additions:last-of-type .price{
+    color: var(--orange);
+}
+
+#checkout .summary .button-1{
+    width: 100%;
+}
+
+#checkout .confirmation{
+    border-radius: 8px;
+    padding: 2rem;
+    background: var(--white);
+    min-width: 90%;
+    position: fixed;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#checkout .confirmation .tick{
+    width: 64px;
+    margin-bottom: 1.5rem;
+}
+
+#checkout .confirmation h6{
+    font-size: 1.5rem;
+    line-height: 1.75rem; /* 116.667% */
+    letter-spacing: 0.0535625rem;
+    margin-bottom: 1rem;
+}
+
+#checkout .confirmation .e-mail{
+    font-size: 0.9375rem;
+    line-height: 1.5625rem; /* 166.667% */
+    opacity: 0.5;
+    margin-bottom: 1.5rem;
+}
+
+#checkout .confirmation .inventory{
+    margin-bottom: 1.5rem;
+}
+
+#checkout .confirmation .inventory .product{
+    background: var(--gray);
+    padding: 1.5rem 1.5rem 0.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+#checkout .confirmation .inventory .product img{
+    width: 50px;
+}
+
+#checkout .confirmation .inventory .other{
+    padding: 0.75rem 0 1.5rem;
+    text-align: center;
+    background: var(--gray);
+}
+
+#checkout .confirmation .inventory .other p{
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: -0.013375rem;
+    opacity: 0.5;
+}
+
+#checkout .confirmation .total{
+    background: var(--black);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 1rem 1.5rem 1.25rem;
+}
+
+#checkout .confirmation .total .label{
+    color: var(--white);
+    font-size: 0.9375rem;
+    line-height: 1.5625rem; /* 166.667% */
+    opacity: 0.5;
+    margin-bottom: 0.5rem;
+}
+
+#checkout .confirmation .total .price{
+    color: var(--white);
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+#checkout .confirmation .button-1{
+    width: 100%;
 }

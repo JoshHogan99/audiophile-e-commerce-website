@@ -15,6 +15,14 @@ export default function Checkout(){
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        if(showCheckout){
+            document.body.style.overflow = "hidden"
+        }else{
+            document.body.style.overflow = "auto"
+        }
+    }, [showCheckout])
+
+    useEffect(() => {
         const storedCartItems = JSON.parse(localStorage.getItem("cart")) || []
 
         setCartItems(storedCartItems)
@@ -39,12 +47,14 @@ export default function Checkout(){
         setCashDelivery(false)
 
         window.scrollTo({top: 0})
+
+        handleCheckout()
+
+        localStorage.removeItem("cart")
     }
 
     function handleCheckout(){
         setShowCheckout(setShowCheckout => !setShowCheckout)
-
-        localStorage.removeItem("cart")
     }
 
     if(loading){
@@ -137,7 +147,7 @@ export default function Checkout(){
                                 onClick={() => {setEMoney(true); setCashDelivery(false)}} 
                             />
 
-                            e-Money
+                            <p>e-Money</p>
                         </label>
 
                         <label 
@@ -157,20 +167,20 @@ export default function Checkout(){
                                 onClick={() => {setEMoney(false); setCashDelivery(true)}} 
                             />
                             
-                            Cash on Delivery
+                            <p>Cash on Delivery</p>
                         </label>
                     </div>
 
                     {eMoney && (
-                        <div className="e-money-container">
+                        <div className="e-money">
                             <label>
-                                e-Money Number
+                                <p>e-Money Number <span>*</span></p>
 
                                 <input required type="text" id="e-money-number" name="e-money-number" autoComplete="off" placeholder="238512993" />
                             </label>
         
                             <label>
-                                e-Money PIN
+                                <p>e-Money PIN <span>*</span></p>
 
                                 <input required type="text" id="e-money-pin" name="e-money-pin" autoComplete="off" placeholder="6891" />
                             </label>
@@ -179,56 +189,50 @@ export default function Checkout(){
                 </form>
             </div>
 
-            <div className="checkout">
-                <div className="cart-intro-container">
-                    <h6>SUMMARY</h6>
-                </div>
+            <div className="summary">
+                <h5>SUMMARY</h5>
 
-                <div className="cart-inventory-container">
+                <div className="products">
                     {cartItems.map((item, index) => (
-                        <div key={index} className="cart-inventory">
-                            <div className="cart-inventory-extra">
-                                <img src={`../../assets/cart/image-${item.slug}.jpg`} />
+                        <div key={index} className="product">
+                            <img src={`../../assets/cart/image-${item.slug}.jpg`} />
 
-                                <div className="cart-inventory-name-price-container">
-                                    <p className="cart-inventory-name">{item.name}</p>
+                            <p className="name">{item.name} <span>$ {item.price.toLocaleString()}</span></p>
 
-                                    <p className="cart-inventory-price">$ {item.price}</p>
-                                </div>
-                            </div>
-
-                            <p className="opacity fw-700">x{item.quantity}</p>
+                            <p className="quantity">x{item.quantity}</p>
                         </div>
                     ))}
-
-                    <div className="cart-total">
-                        <div className="cart-total-container">
-                            <p className="cart-total-text">TOTAL</p>
-
-                            <p className="cart-total-price">$ {cartTotal}</p>
-                        </div>
-
-                        <div className="cart-total-container">
-                            <p className="cart-total-text">SHIPPING</p>
-
-                            <p className="cart-total-price">$ 50</p>
-                        </div>
-
-                        <div className="cart-total-container">
-                            <p className="cart-total-text">VAT (INCLUDED)</p>
-
-                            <p className="cart-total-price">$ {cartTotal / 5}</p>
-                        </div>
-                    </div>
-
-                    <div className="cart-total-container grand">
-                        <p className="cart-total-text">GRAND TOTAL</p>
-
-                        <p className="cart-total-price">$ {cartTotal + 50}</p>
-                    </div>
                 </div>
 
-                <button onClick={handleCheckout} type="submit" form="myForm" className="checkout-button">
+                <div className="additions">
+                    <p className="label">TOTAL <span></span></p>
+
+                    <p className="price">$ {cartTotal.toLocaleString()}</p>
+                </div>
+
+                <div className="additions">
+                    <p className="label">SHIPPING</p>
+
+                    <p className="price">$ 50</p>
+                </div>
+
+                <div className="additions">
+                    <p className="label">VAT (INCLUDED)</p>
+
+                    <p className="price">$ {(cartTotal / 5).toLocaleString()}</p>
+                </div>
+
+                <div className="additions">
+                    <p className="label">GRAND TOTAL</p>
+
+                    <p className="price">$ {(cartTotal + 50).toLocaleString()}</p>
+                </div>
+
+                <button 
+                    type="submit" 
+                    form="myForm" 
+                    className="button-1"
+                >
                     CONTINUE & PAY
                 </button>
             </div>
@@ -236,39 +240,33 @@ export default function Checkout(){
             {showCheckout && <div className="page-overlay" onClick={handleCheckout} ></div>}
 
             {showCheckout && (
-                <div className="checkout-confirmation">
-                    <img src={iconOrderConfirmation} />
+                <div className="confirmation">
+                    <img src={iconOrderConfirmation} className="tick" />
 
-                    <div className="info">
-                        <h5>THANK YOU FOR YOUR ORDER</h5>
+                    <h6>THANK YOU FOR YOUR ORDER</h6>
 
-                        <p className="opacity">You will receive an email confirmation shortly.</p>
-                    </div>
+                    <p className="e-mail">You will receive an email confirmation shortly.</p>
 
                     {cartItems.length ? (
-                        <div className="cart-inventory">
-                            <div className="cart-inventory-extra">
+                        <div className="inventory">
+                            <div className="product">
                                 <img src={`../../assets/cart/image-${cartItems[0].slug}.jpg`} />
 
-                                <div className="cart-inventory-name-price-container">
-                                    <p className="cart-inventory-name">{cartItems[0].name}</p>
+                                <p className="name">{cartItems[0].name} <span>$ {cartItems[0].price.toLocaleString()}</span></p>
 
-                                    <p className="cart-inventory-price">$ {cartItems[0].price}</p>
-                                </div>
-
-                                <p className="quantity opacity fw-700">x{cartItems[0].quantity}</p>
+                                <p className="quantity">x{cartItems[0].quantity}</p>
                             </div>
 
-                            <div className="cart-inventory-other-items">
-                                <p className="sub-title opacity">
+                            <div className="other">
+                                <p>
                                     and {cartItems.length - 1 === 0 ? "no" : cartItems.length - 1} other item(s)
                                 </p>
                             </div>
 
-                            <div className="grand-total">
-                                <p className="opacity">GRAND TOTAL</p>
+                            <div className="total">
+                                <p className="label">GRAND TOTAL</p>
 
-                                <h6>$ {cartTotal + 50}</h6>
+                                <p className="price">$ {(cartTotal + 50).toLocaleString()}</p>
                             </div>
                         </div>
                         ) : null}

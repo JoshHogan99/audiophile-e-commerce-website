@@ -1,6 +1,7 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import {NavLink, useLocation} from "react-router-dom"
 
+import Category from "../Category/Category.jsx"
 import Cart from "../Cart/Cart.jsx"
 
 import hamburgerIcon from "../../assets/shared/tablet/icon-hamburger.svg"
@@ -10,7 +11,7 @@ import cartIcon from "../../assets/shared/desktop/icon-cart.svg"
 import "./Header.css"
 
 export default function Header() {
-    const [showNav, setShowNav] = useState(false)
+    const [showNav, setShowNav] = useState(true)
     const [showCart, setShowCart] = useState(false)
 
     const location = useLocation()
@@ -23,6 +24,14 @@ export default function Header() {
     function handleCart(){
         setShowCart(setShowCart => !setShowCart)
     }
+
+    useEffect(() => {
+        if(showNav || showCart){
+            document.body.style.overflow = "hidden"
+        }else{
+            document.body.style.overflow = "auto"
+        }
+    }, [showNav, showCart])
 
     return(
         <header 
@@ -38,13 +47,11 @@ export default function Header() {
 
             <img src={cartIcon} alt="Cart Icon" onClick={handleCart} />
 
-            {showNav && <div className="page-overlay" onClick={handleNav}></div>}
+            {showNav && <div className="page-overlay-nav" onClick={handleNav}></div>}
 
             {showNav && (
-                <div className="header-navlinks">
-                    <NavLink to="/about">OUR COMPANY</NavLink>
-                    <NavLink to="/locations">LOCATIONS</NavLink>
-                    <NavLink to="/contact">CONTACT</NavLink>
+                <div className="nav">
+                    <Category />
                 </div>
             )}
 

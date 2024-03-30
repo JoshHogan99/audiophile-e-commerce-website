@@ -74,6 +74,8 @@ export default function Cart({handleCart}) {
 
                             <button 
                                 onClick={() => setQuantity(index, "add")}
+                                style={item.quantity === 5 ? {cursor: "not-allowed"} : null}
+                                disabled={item.quantity === 5}
                             >
                                 +
                             </button>  

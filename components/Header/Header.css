@@ -21,5 +21,36 @@ header{
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9;
+    z-index: 6;
+}
+
+.page-overlay-nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin-top: 5.656rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 6;
+}
+
+header .nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 5.656rem;
+    background: white;
+    width: 100%;
+    max-height: 65%;
+    z-index: 6;
+    padding: 5.25rem 1.5rem 2.25rem;
+    overflow: scroll;
+    border-radius: 0px 0px 8px 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+header .nav a{
+    display: block;
 }
