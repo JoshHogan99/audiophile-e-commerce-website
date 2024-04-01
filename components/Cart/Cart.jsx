@@ -3,45 +3,7 @@ import { NavLink } from "react-router-dom"
 
 import './Cart.css'
 
-export default function Cart({handleCart}) {
-    const [cartItems, setCartItems] = useState([])
-    const [cartTotal, setCartTotal] = useState(0)
-
-    function setQuantity(id, alter){
-        const updatedCartItems = [...cartItems]
-
-        let alterQuantity
-
-        alterQuantity = alter === "add" ? 1 : -1
-
-        updatedCartItems[id] = {
-            ...updatedCartItems[id],
-            quantity: (updatedCartItems[id].quantity || 0) + alterQuantity
-        }
-
-        setCartItems(updatedCartItems)
-
-        localStorage.setItem("cart", JSON.stringify(updatedCartItems))
-    }
-
-    useEffect(() => {
-        const storedCartItems = JSON.parse(localStorage.getItem("cart")) || []
-
-        setCartItems(storedCartItems)
-    }, [])
-
-    function handleCartClear(){
-        localStorage.removeItem("cart")
-
-        setCartItems([])
-    }
-
-    useEffect(() => {
-        const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
-
-        setCartTotal(total)
-    }, [cartItems])
-
+export default function Cart({handleCart, cartItems, cartTotal, setQuantity, handleCartClear}) {
     return(
         <div id="cart">
             <div className="heading">

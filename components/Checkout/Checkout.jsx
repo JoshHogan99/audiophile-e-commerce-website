@@ -5,14 +5,11 @@ import "./Checkout.css"
 
 import iconOrderConfirmation from "../../assets/checkout/icon-order-confirmation.svg"
 
-export default function Checkout(){
-    const [cartItems, setCartItems] = useState([])
-    const [cartTotal, setCartTotal] = useState(0)
+export default function Checkout({cartItems, cartTotal}){
     const [eMoney, setEMoney] = useState(false)
     const [cashDelivery, setCashDelivery] = useState(false)
     const [data, setData] = useState([])
     const [showCheckout, setShowCheckout] = useState(false)
-    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         if(showCheckout){
@@ -21,19 +18,6 @@ export default function Checkout(){
             document.body.style.overflow = "auto"
         }
     }, [showCheckout])
-
-    useEffect(() => {
-        const storedCartItems = JSON.parse(localStorage.getItem("cart")) || []
-
-        setCartItems(storedCartItems)
-        setLoading(false)
-    }, [])
-
-    useEffect(() => {
-        const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
-
-        setCartTotal(total)
-    }, [cartItems])
 
     function handleSubmit(event){
         event.preventDefault()
@@ -53,17 +37,17 @@ export default function Checkout(){
         localStorage.removeItem("cart")
     }
 
+    console.log(cartItems)
+
+    console.log(cartTotal)
+
     function handleCheckout(){
         setShowCheckout(setShowCheckout => !setShowCheckout)
     }
 
-    if(loading){
-        return <h2>Loading...</h2>
-    }
-
-    if(cartItems.length < 1){
-        return <Navigate to="/" replace={true} />
-    }
+    // if(cartItems.length < 1){
+    //     return <Navigate to="/" replace={true} />
+    // }
 
     return(
         <div id="checkout">

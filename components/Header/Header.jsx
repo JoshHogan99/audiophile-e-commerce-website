@@ -10,7 +10,7 @@ import cartIcon from "../../assets/shared/desktop/icon-cart.svg"
 
 import "./Header.css"
 
-export default function Header() {
+export default function Header({cartItems, cartTotal, setQuantity, handleCartClear}) {
     const [showNav, setShowNav] = useState(true)
     const [showCart, setShowCart] = useState(false)
 
@@ -58,6 +58,10 @@ export default function Header() {
             {showCart && (
                 <Cart 
                     handleCart={handleCart}
+                    cartItems={cartItems}
+                    cartTotal={cartTotal}
+                    setQuantity={setQuantity}
+                    handleCartClear={handleCartClear}
                 />
             )}
         </header>
