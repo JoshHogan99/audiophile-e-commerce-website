@@ -49,11 +49,9 @@ export default function Header() {
 
             {showNav && <div className="page-overlay-nav" onClick={handleNav}></div>}
 
-            {showNav && (
-                <div className="nav">
-                    <Category />
-                </div>
-            )}
+            <div className={`nav ${showNav ? "show" : ""}`}>
+                <Category />
+            </div>
 
             {showCart && <div className="page-overlay" onClick={handleCart} ></div>}
 

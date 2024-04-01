@@ -42,13 +42,19 @@ header .nav{
     margin-top: 5.656rem;
     background: white;
     width: 100%;
-    max-height: 65%;
+    height: 0;
     z-index: 6;
-    padding: 5.25rem 1.5rem 2.25rem;
+    padding: 0 1.5rem 0;
     overflow: scroll;
     border-radius: 0px 0px 8px 8px;
     display: flex;
     flex-direction: column;
+    transition: height 0.5s ease, padding 0.5s ease;
+}
+
+header .nav.show{
+    height: 65%;
+    padding: 5.25rem 1.5rem 2.25rem;
 }
 
 header .nav a{
