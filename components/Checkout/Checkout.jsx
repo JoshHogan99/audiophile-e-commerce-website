@@ -74,7 +74,7 @@ export default function Checkout(){
                             <input required type="text" id="name" name="name" autoComplete="name" placeholder="Alexei Ward" />
                         </label>
                         
-                        {/* <label>
+                        <label>
                             <p>Email Address <span>*</span></p>
 
                             <input required type="email" id="email" name="email" autoComplete="email" placeholder="alexei@mail.com" />
@@ -154,7 +154,7 @@ export default function Checkout(){
                             />
                             
                             <p>Cash on Delivery</p>
-                        </label> */}
+                        </label>
                     </div>
 
                     {eMoney && (
