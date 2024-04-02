@@ -1,15 +1,19 @@
 import React, {useEffect, useState} from "react"
-import {NavLink, Navigate} from "react-router-dom"
+import {NavLink, Navigate, useOutletContext} from "react-router-dom"
 
 import "./Checkout.css"
 
 import iconOrderConfirmation from "../../assets/checkout/icon-order-confirmation.svg"
 
-export default function Checkout({cartItems, cartTotal}){
+export default function Checkout(){
+    const {cartItems, cartTotal} = useOutletContext()
     const [eMoney, setEMoney] = useState(false)
     const [cashDelivery, setCashDelivery] = useState(false)
     const [data, setData] = useState([])
     const [showCheckout, setShowCheckout] = useState(false)
+    const {handleCartClear} = useOutletContext()
+    const [checkoutItems, setCheckoutItems] = useState([])
+    const [checkoutTotal, setCheckoutTotal] = useState(0)
 
     useEffect(() => {
         if(showCheckout){
@@ -29,25 +33,23 @@ export default function Checkout({cartItems, cartTotal}){
 
         setEMoney(false)
         setCashDelivery(false)
+        setCheckoutItems(cartItems)
+        setCheckoutTotal(cartTotal)
+
+        handleCartClear()
 
         window.scrollTo({top: 0})
 
         handleCheckout()
-
-        localStorage.removeItem("cart")
     }
-
-    console.log(cartItems)
-
-    console.log(cartTotal)
 
     function handleCheckout(){
         setShowCheckout(setShowCheckout => !setShowCheckout)
     }
 
-    // if(cartItems.length < 1){
-    //     return <Navigate to="/" replace={true} />
-    // }
+    if(!showCheckout && cartItems.length < 1){
+        return <Navigate to="/" replace={true} />
+    }
 
     return(
         <div id="checkout">
@@ -72,7 +74,7 @@ export default function Checkout({cartItems, cartTotal}){
                             <input required type="text" id="name" name="name" autoComplete="name" placeholder="Alexei Ward" />
                         </label>
                         
-                        <label>
+                        {/* <label>
                             <p>Email Address <span>*</span></p>
 
                             <input required type="email" id="email" name="email" autoComplete="email" placeholder="alexei@mail.com" />
@@ -152,7 +154,7 @@ export default function Checkout({cartItems, cartTotal}){
                             />
                             
                             <p>Cash on Delivery</p>
-                        </label>
+                        </label> */}
                     </div>
 
                     {eMoney && (
@@ -231,26 +233,26 @@ export default function Checkout({cartItems, cartTotal}){
 
                     <p className="e-mail">You will receive an email confirmation shortly.</p>
 
-                    {cartItems.length ? (
+                    {checkoutItems.length ? (
                         <div className="inventory">
                             <div className="product">
-                                <img src={`../../assets/cart/image-${cartItems[0].slug}.jpg`} />
+                                <img src={`../../assets/cart/image-${checkoutItems[0].slug}.jpg`} />
 
-                                <p className="name">{cartItems[0].name} <span>$ {cartItems[0].price.toLocaleString()}</span></p>
+                                <p className="name">{checkoutItems[0].name} <span>$ {checkoutItems[0].price.toLocaleString()}</span></p>
 
-                                <p className="quantity">x{cartItems[0].quantity}</p>
+                                <p className="quantity">x{checkoutItems[0].quantity}</p>
                             </div>
 
                             <div className="other">
                                 <p>
-                                    and {cartItems.length - 1 === 0 ? "no" : cartItems.length - 1} other item(s)
+                                    and {checkoutItems.length - 1 === 0 ? "no" : checkoutItems.length - 1} other item(s)
                                 </p>
                             </div>
 
                             <div className="total">
                                 <p className="label">GRAND TOTAL</p>
 
-                                <p className="price">$ {(cartTotal + 50).toLocaleString()}</p>
+                                <p className="price">$ {(checkoutTotal + 50).toLocaleString()}</p>
                             </div>
                         </div>
                         ) : null}

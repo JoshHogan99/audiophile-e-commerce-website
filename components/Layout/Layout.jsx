@@ -45,18 +45,31 @@ export default function Layout(){
         setCartItems([])
     }
 
+    function handleCart(slug, name, price, quantity){
+        const product = {
+            slug: slug,
+            name: name,
+            price: price,
+            quantity: quantity
+        }
+
+        const existingCartItems = JSON.parse(localStorage.getItem("cart")) || []
+
+        const updatedCartItems = [...existingCartItems, product]
+
+        localStorage.setItem("cart", JSON.stringify(updatedCartItems))
+
+        setCartItems(updatedCartItems)
+    }
+
     return(
         <div className="site-wrapper">
             <Header
-                cartItems={cartItems}
-                cartTotal={cartTotal}
-                setQuantity={setQuantity}
-                handleCartClear={handleCartClear}
+                {...{cartItems, cartTotal, setQuantity, handleCartClear}}
             />
             <main>
                 <Outlet 
-                    cartItems={cartItems}
-                    cartTotal={cartTotal}
+                    context={{cartItems, cartTotal, handleCart, handleCartClear}}
                 />
             </main>
             <Footer />

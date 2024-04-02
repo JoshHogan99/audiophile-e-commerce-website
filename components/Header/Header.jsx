@@ -11,7 +11,7 @@ import cartIcon from "../../assets/shared/desktop/icon-cart.svg"
 import "./Header.css"
 
 export default function Header({cartItems, cartTotal, setQuantity, handleCartClear}) {
-    const [showNav, setShowNav] = useState(true)
+    const [showNav, setShowNav] = useState(false)
     const [showCart, setShowCart] = useState(false)
 
     const location = useLocation()

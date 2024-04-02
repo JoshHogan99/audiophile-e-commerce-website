@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import {NavLink, useParams} from "react-router-dom"
+import {NavLink, useOutletContext, useParams} from "react-router-dom"
 
 import {getProduct} from "../../api"
 
@@ -9,6 +9,7 @@ import BestGear from "../../components/BestGear/BestGear.jsx"
 import "./Product.css"
 
 export default function Product(){
+    const {handleCart} = useOutletContext()
     const [product, setProduct] = useState(null)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
@@ -99,21 +100,6 @@ export default function Product(){
             </div>
         )
     }) : null
-
-    function handleCart(slug, name, price, quantity){
-        const product = {
-            slug: slug,
-            name: name,
-            price: price,
-            quantity: quantity
-        }
-
-        const existingCartItems = JSON.parse(localStorage.getItem("cart")) || []
-
-        const updatedCartItems = [...existingCartItems, product]
-
-        localStorage.setItem("cart", JSON.stringify(updatedCartItems))
-    }
 
     return(
         <div id="product">
