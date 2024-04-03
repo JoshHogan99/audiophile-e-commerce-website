@@ -60,3 +60,17 @@ header .nav.show{
 header .nav a{
     display: block;
 }
+
+@media (min-width: 768px){
+    header{
+        justify-content: unset;
+    }
+
+    header .hamburger{
+        margin-right: 2.625rem;
+    }
+
+    header .cart{
+        margin-left: auto;
+    }
+}

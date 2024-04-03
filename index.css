@@ -178,3 +178,13 @@ button{
     line-height: 1.5625rem; 
     opacity: 0.5;
 }
+
+@media (min-width: 768px){
+    .mobile-img{
+        display: none;
+    }
+
+    .tablet-img{
+        display: block;
+    }
+}

@@ -39,13 +39,13 @@ export default function Header({cartItems, cartTotal, setQuantity, handleCartCle
                 background: locationPathname === "/" ? "#191919" : "#000"
             }}
         >
-            <img src={hamburgerIcon} alt="Hamburger Icon" onClick={handleNav} /> 
+            <img src={hamburgerIcon} className="hamburger" alt="Hamburger Icon" onClick={handleNav} /> 
 
             <NavLink to="/">
-                <img src={logoIcon} alt="Logo" /> 
+                <img src={logoIcon} className="logo" alt="Logo" /> 
             </NavLink>
 
-            <img src={cartIcon} alt="Cart Icon" onClick={handleCart} />
+            <img src={cartIcon} className="cart" alt="Cart Icon" onClick={handleCart} />
 
             {showNav && <div className="page-overlay-nav" onClick={handleNav}></div>}
 
