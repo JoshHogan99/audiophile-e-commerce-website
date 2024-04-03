@@ -113,64 +113,70 @@ export default function Product(){
 
             {product && (
                 <div className="product">
-                    <img 
-                        src={`../.${product.image.mobile}`}
-                        alt={product.name} 
-                        className="mobile-img"
-                    />
+                    <div className="image-info">
+                        <div className="image">
+                            <img 
+                                src={`../.${product.image.mobile}`}
+                                alt={product.name} 
+                                className="mobile-img"
+                            />
 
-                    <img 
-                        src={`../.${product.image.tablet}`} 
-                        alt={product.name}
-                        className="tablet-img" 
-                    />
+                            <img 
+                                src={`../.${product.image.tablet}`} 
+                                alt={product.name}
+                                className="tablet-img" 
+                            />
 
-                    <img 
-                        src={`../.${product.image.desktop}`} 
-                        alt={product.name}
-                        className="desktop-img" 
-                    />
-
-                    {product.new ? <p className="overline">NEW PRODUCT</p> : null}
-
-                    <h1 className="name">{product.name}<span> {product.category}</span></h1>
-
-                    <p className="desc">{product.description}</p>
-
-                    <p className="price">$ {product.price.toLocaleString()}</p>
-        
-                    <div className="numbers-container">
-                        <div className="numbers-default">
-                            <button
-                                onClick={subtractQuantity}
-                                disabled={quantity === 1}
-                                style={subtractButtonStyles}
-                            >
-                                -
-                            </button>
-
-                            <p className="quantity">{quantity}</p>
-
-                            <button 
-                                onClick={addQuantity}
-                                disabled={quantity === 5}
-                                style={addButtonStyles}
-                            >
-                                +
-                            </button>   
+                            <img 
+                                src={`../.${product.image.desktop}`} 
+                                alt={product.name}
+                                className="desktop-img" 
+                            />
                         </div>
 
-                        <button 
-                            className="button-1"
-                            onClick={() => handleCart(
-                                product.slug,
-                                product.cart,
-                                product.price,
-                                quantity
-                            )}
-                        >
-                            ADD TO CART
-                        </button>
+                        <div className="info">
+                            {product.new ? <p className="overline">NEW PRODUCT</p> : null}
+
+                            <h1 className="name">{product.name}<span> {product.category}</span></h1>
+
+                            <p className="desc">{product.description}</p>
+
+                            <p className="price">$ {product.price.toLocaleString()}</p>
+
+                            <div className="numbers-container">
+                                <div className="numbers-default">
+                                    <button
+                                        onClick={subtractQuantity}
+                                        disabled={quantity === 1}
+                                        style={subtractButtonStyles}
+                                    >
+                                        -
+                                    </button>
+
+                                    <p className="quantity">{quantity}</p>
+
+                                    <button 
+                                        onClick={addQuantity}
+                                        disabled={quantity === 5}
+                                        style={addButtonStyles}
+                                    >
+                                        +
+                                    </button>   
+                                </div>
+
+                                <button 
+                                    className="button-1"
+                                    onClick={() => handleCart(
+                                        product.slug,
+                                        product.cart,
+                                        product.price,
+                                        quantity
+                                    )}
+                                >
+                                    ADD TO CART
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                     <h2>FEATURES</h2>
@@ -181,67 +187,76 @@ export default function Product(){
                     >
                     </p>
 
-                    <h3>IN THE BOX</h3>
+                    <div className="includes-container">
+                        <h3>IN THE BOX</h3>
 
-                    {includesElement}
+                        <div className="includes-wrapper">
+                            {includesElement}
+                        </div>
+                    </div>
 
-                    <img 
-                        src={`../.${product.gallery.first.mobile}`} 
-                        alt="Man wearing headphones looking to the side"
-                        className="mobile-img" 
-                    />
+                    <div className="gallery">
+                        <img 
+                            src={`../.${product.gallery.first.mobile}`} 
+                            alt="Man wearing headphones looking to the side"
+                            className="mobile-img img-1" 
+                        />
 
-                    <img 
-                        src={`../.${product.gallery.first.tablet}`} 
-                        alt="Man wearing headphones looking to the side"
-                        className="tablet-img" 
-                    />
+                        <img 
+                            src={`../.${product.gallery.first.tablet}`} 
+                            alt="Man wearing headphones looking to the side"
+                            className="tablet-img img-1" 
+                        />
 
-                    <img 
-                        src={`../.${product.gallery.first.desktop}`} 
-                        alt="Man wearing headphones looking to the side"
-                        className="desktop-img" 
-                    />
+                        <img 
+                            src={`../.${product.gallery.first.desktop}`} 
+                            alt="Man wearing headphones looking to the side"
+                            className="desktop-img img-1" 
+                        />
 
-                    <img 
-                        src={`../.${product.gallery.second.mobile}`} 
-                        alt="Headphones on table"
-                        className="mobile-img" 
-                    />
+                        <img 
+                            src={`../.${product.gallery.second.mobile}`} 
+                            alt="Headphones on table"
+                            className="mobile-img img-2" 
+                        />
 
-                    <img 
-                        src={`../.${product.gallery.second.tablet}`} 
-                        alt="Headphones on table"
-                        className="tablet-img" 
-                    />
+                        <img 
+                            src={`../.${product.gallery.second.tablet}`} 
+                            alt="Headphones on table"
+                            className="tablet-img img-2" 
+                        />
 
-                    <img 
-                        src={`../.${product.gallery.second.desktop}`} 
-                        alt="Headphones on table"
-                        className="desktop-img" 
-                    />
+                        <img 
+                            src={`../.${product.gallery.second.desktop}`} 
+                            alt="Headphones on table"
+                            className="desktop-img img-2" 
+                        />
 
-                    <img 
-                        src={`../.${product.gallery.third.mobile}`} 
-                        alt="Headphones earcups"
-                        className="mobile-img" 
-                    />
+                        <img 
+                            src={`../.${product.gallery.third.mobile}`} 
+                            alt="Headphones earcups"
+                            className="mobile-img img-3" 
+                        />
 
-                    <img 
-                        src={`../.${product.gallery.third.tablet}`} 
-                        alt="Headphones earcups"
-                        className="tablet-img" 
-                    />
+                        <img 
+                            src={`../.${product.gallery.third.tablet}`} 
+                            alt="Headphones earcups"
+                            className="tablet-img img-3" 
+                        />
 
-                    <img 
-                        src={`../.${product.gallery.third.desktop}`} 
-                        alt="Headphones earcups"
-                        className="desktop-img" 
-                    />
+                        <img 
+                            src={`../.${product.gallery.third.desktop}`} 
+                            alt="Headphones earcups"
+                            className="desktop-img img-3" 
+                        />
+                    </div>
 
                     <h4>YOU MAY ALSO LIKE</h4>
+                    
+                    <div className="others-container">
+                        {othersElement}
+                    </div>
 
-                    {othersElement}
                 </div>
             )}
 

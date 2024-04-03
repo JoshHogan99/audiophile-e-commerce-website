@@ -68,93 +68,99 @@ export default function Checkout(){
                     <div className="details">
                         <h2>BILLING DETAILS</h2>
 
-                        <label>
-                            <p>Name <span>*</span></p>
+                        <div className="billing">
+                            <label className="name">
+                                <p>Name <span>*</span></p>
 
-                            <input required type="text" id="name" name="name" autoComplete="name" placeholder="Alexei Ward" />
-                        </label>
-                        
-                        <label>
-                            <p>Email Address <span>*</span></p>
+                                <input required type="text" id="name" name="name" autoComplete="name" placeholder="Alexei Ward" />
+                            </label>
+                            
+                            {/* <label className="e-mail">
+                                <p>Email Address <span>*</span></p>
 
-                            <input required type="email" id="email" name="email" autoComplete="email" placeholder="alexei@mail.com" />
-                        </label>
+                                <input required type="email" id="email" name="email" autoComplete="email" placeholder="alexei@mail.com" />
+                            </label>
 
-                        <label>
-                            <p>Phone Number <span>*</span></p>
+                            <label className="phone">
+                                <p>Phone Number <span>*</span></p>
 
-                            <input required type="tel" id="tel" name="tel" autoComplete="tel" placeholder="+1 202-555-0136" />
-                        </label>
+                                <input required type="tel" id="tel" name="tel" autoComplete="tel" placeholder="+1 202-555-0136" />
+                            </label> */}
+                        </div>
                         
                         <h3>SHIPPING INFO</h3>
 
-                        <label>
-                            <p>Your Address <span>*</span></p>
+                        {/* <div className="shipping">
+                            <label className="address">
+                                <p>Your Address <span>*</span></p>
 
-                            <input required type="text" id="address" name="address" autoComplete="on" placeholder="1137 Williams Avenue" />
-                        </label>
+                                <input required type="text" id="address" name="address" autoComplete="on" placeholder="1137 Williams Avenue" />
+                            </label>
 
-                        <label>
-                            <p>ZIP Code <span>*</span></p>
+                            <label className="zip-code">
+                                <p>ZIP Code <span>*</span></p>
 
-                            <input required type="text" id="zip-code" name="zip-code" autoComplete="postal-code" placeholder="10001" />
-                        </label>
+                                <input required type="text" id="zip-code" name="zip-code" autoComplete="postal-code" placeholder="10001" />
+                            </label>
 
-                        <label>
-                            <p>City <span>*</span></p>
+                            <label className="city">
+                                <p>City <span>*</span></p>
 
-                            <input required type="text" id="city" name="city" autoComplete="address-level2" placeholder="New York" />
-                        </label>
+                                <input required type="text" id="city" name="city" autoComplete="address-level2" placeholder="New York" />
+                            </label>
 
-                        <label>
-                            <p>Country <span>*</span></p>
+                            <label className="country">
+                                <p>Country <span>*</span></p>
 
-                            <input required type="text" id="country" name="country" autoComplete="country" placeholder="United States" />
-                        </label>
+                                <input required type="text" id="country" name="country" autoComplete="country" placeholder="United States" />
+                            </label>
+                        </div>
 
                         <h4>PAYMENT DETAILS</h4>
 
-                        <p className="payment">Payment Method <span>*</span></p>
+                        <div className="payment-container">
+                            <p className="payment">Payment Method <span>*</span></p>
 
-                        <label 
-                            className="radio" 
-                            style={
-                                eMoney 
-                                ? {border: "1px solid #D87D4A"} 
-                                : {border: "1px solid #CFCFCF"}
-                            }
-                        >
-                            <input 
-                                required
-                                type="radio" 
-                                id="e-money" 
-                                name="payment-method" 
-                                value="e-Money" 
-                                onClick={() => {setEMoney(true); setCashDelivery(false)}} 
-                            />
+                            <label 
+                                className="radio radio-1" 
+                                style={
+                                    eMoney 
+                                    ? {border: "1px solid #D87D4A"} 
+                                    : {border: "1px solid #CFCFCF"}
+                                }
+                            >
+                                <input 
+                                    required
+                                    type="radio" 
+                                    id="e-money" 
+                                    name="payment-method" 
+                                    value="e-Money" 
+                                    onClick={() => {setEMoney(true); setCashDelivery(false)}} 
+                                />
 
-                            <p>e-Money</p>
-                        </label>
+                                <p>e-Money</p>
+                            </label>
 
-                        <label 
-                            className="radio" 
-                            style={
-                                cashDelivery 
-                                ? {border: "1px solid #D87D4A"} 
-                                : {border: "1px solid #CFCFCF"}
-                            }
-                        >
-                            <input 
-                                required
-                                type="radio" 
-                                id="cash" 
-                                name="payment-method" 
-                                value="Cash on Delivery" 
-                                onClick={() => {setEMoney(false); setCashDelivery(true)}} 
-                            />
-                            
-                            <p>Cash on Delivery</p>
-                        </label>
+                            <label 
+                                className="radio radio-2" 
+                                style={
+                                    cashDelivery 
+                                    ? {border: "1px solid #D87D4A"} 
+                                    : {border: "1px solid #CFCFCF"}
+                                }
+                            >
+                                <input 
+                                    required
+                                    type="radio" 
+                                    id="cash" 
+                                    name="payment-method" 
+                                    value="Cash on Delivery" 
+                                    onClick={() => {setEMoney(false); setCashDelivery(true)}} 
+                                />
+                                
+                                <p>Cash on Delivery</p>
+                            </label>
+                        </div> */}
                     </div>
 
                     {eMoney && (
@@ -235,18 +241,20 @@ export default function Checkout(){
 
                     {checkoutItems.length ? (
                         <div className="inventory">
-                            <div className="product">
-                                <img src={`../../assets/cart/image-${checkoutItems[0].slug}.jpg`} />
+                            <div className="product-other">
+                                <div className="product">
+                                    <img src={`../../assets/cart/image-${checkoutItems[0].slug}.jpg`} />
 
-                                <p className="name">{checkoutItems[0].name} <span>$ {checkoutItems[0].price.toLocaleString()}</span></p>
+                                    <p className="name">{checkoutItems[0].name} <span>$ {checkoutItems[0].price.toLocaleString()}</span></p>
 
-                                <p className="quantity">x{checkoutItems[0].quantity}</p>
-                            </div>
+                                    <p className="quantity">x{checkoutItems[0].quantity}</p>
+                                </div>
 
-                            <div className="other">
-                                <p>
-                                    and {checkoutItems.length - 1 === 0 ? "no" : checkoutItems.length - 1} other item(s)
-                                </p>
+                                <div className="other">
+                                    <p>
+                                        and {checkoutItems.length - 1 === 0 ? "no" : checkoutItems.length - 1} other item(s)
+                                    </p>
+                                </div>
                             </div>
 
                             <div className="total">

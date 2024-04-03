@@ -187,4 +187,19 @@ button{
     .tablet-img{
         display: block;
     }
+
+    .product .tablet-img{
+        width: 689px;
+    }
+
+    .product .overline{
+        margin-bottom: 1rem;
+    }
+
+    .product .name{
+        font-size: 2.5rem;
+        line-height: 2.75rem; /* 110% */
+        letter-spacing: 0.0893125rem;
+        margin-bottom: 2rem;
+    }
 }

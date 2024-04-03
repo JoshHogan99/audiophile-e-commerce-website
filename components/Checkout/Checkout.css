@@ -275,3 +275,144 @@
 #checkout .confirmation .button-1{
     width: 100%;
 }
+
+@media (min-width: 768px){
+    #checkout{
+        padding: 3rem 2.4375rem 7.25rem;
+    }
+
+    #checkout .form h1{
+        font-size: 2rem;
+        line-height: 2.25rem; /* 112.5% */
+        letter-spacing: 0.0714375rem;
+        margin-bottom: 2rem;
+    }
+
+    #checkout .form .details .billing{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        "name e-mail"
+        "phone none";
+        column-gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    #checkout .form .details .billing .name{
+        grid-area: name;
+    }
+
+    #checkout .form .details .billing .e-mail{
+        grid-area: e-mail;
+    }
+
+    #checkout .form .details .billing .phone{
+        grid-area: phone;
+    }
+
+    #checkout .form .details .shipping{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "address address"
+        "zip-code city"
+        "country none";
+        column-gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    #checkout .form .details .shipping .address{
+        grid-area: address;
+    }
+
+    #checkout .form .details .shipping .zip-code{
+        grid-area: zip-code;
+    }
+
+    #checkout .form .details .shipping .city{
+        grid-area: city;
+    }
+
+    #checkout .form .details .shipping .country{
+        grid-area: country;
+    }
+
+    #checkout .form .details .payment-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        "payment e-money"
+        "none cash";
+    }
+
+    #checkout .form .details .payment-container .payment{
+        grid-area: payment;
+    }
+
+    #checkout .form .details .payment-container .radio.radio-1{
+        grid-area: e-money;
+    }
+
+    #checkout .form .details .payment-container .radio.radio-2{
+        grid-area: cash;
+    }
+
+    #checkout .form .e-money{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1rem;
+        margin: 0;
+    }
+
+    #checkout .form .e-money label{
+        margin: 0;
+    }
+
+    #checkout .summary{
+        padding: 2rem;
+    }
+
+    #checkout .confirmation{
+        min-width: auto;
+        width: 540px;
+        padding: 3rem;
+    }
+
+    #checkout .confirmation h6{
+        font-size: 2rem;
+        line-height: 2.25rem; /* 112.5% */
+        letter-spacing: 0.0714375rem;
+        width: 300px;
+    }
+
+    #checkout .confirmation .e-mail{
+        margin-bottom: 2rem;
+    }
+
+    #checkout .confirmation .inventory{
+        display: flex;
+        margin-bottom: 2.875rem;
+    }
+
+    #checkout .confirmation .inventory .product-other .product{
+        width: 246px;
+        border-radius: 8px 0 0 0;
+    }
+
+    #checkout .confirmation .inventory .product-other .other{
+        width: 246px;
+        border-radius: 0 0 0 8px;
+    }
+
+    #checkout .confirmation .inventory .total{
+        width: 100%;
+        border-radius: 0 8px 8px 0;
+        padding: 0 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
