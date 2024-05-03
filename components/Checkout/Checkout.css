@@ -416,3 +416,23 @@
         justify-content: center;
     }
 }
+
+@media (min-width: 1024px) {
+    #checkout {
+        padding: 3rem 10rem 7.25rem;
+    }
+
+    #checkout .form {
+        width: 730px;
+    }
+
+    #checkout .summary {
+        width: 350px;
+        height: 612px;
+    }
+
+    #checkout-flex {
+        display: flex;
+        justify-content: space-between;
+    }
+}

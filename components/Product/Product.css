@@ -243,3 +243,180 @@
         line-height: normal;
     }
 }
+
+@media (min-width: 1024px) {
+    #product{
+        padding: 2.5rem 10rem;
+    }
+
+    #product .image-info{
+        display: flex;
+        align-items: center;
+        gap: 4.375rem;
+        margin-bottom: 7.5rem;
+    }
+
+    #product .product .image-info .image .tablet-img{
+        display: none;
+    }
+
+    #product .product .image-info .image .desktop-img{
+        display: block;
+        width: 540px;
+        border-radius: 8px;
+    }
+
+    #product .product .image-info .info .overline{
+        font-size: 0.75rem;
+        letter-spacing: 0.5356875rem;
+    }
+
+    #product .product .image-info .info .name{
+        font-size: 1.75rem;
+        line-height: 2rem; /* 114.286% */
+        letter-spacing: 0.0625rem;
+    }
+
+    #product .product .image-info .info .name span{
+        display: block;
+    }
+
+    #product .product .image-info .info .desc{
+        margin-bottom: 2rem;
+    }
+
+    #product .product .image-info .info .numbers-container{
+        margin-bottom: 0;
+    }
+
+    #product h2,
+    #product h3{
+        font-size: 2rem;
+        letter-spacing: 0.0714375rem;
+    }
+
+    #product h2{
+        margin-bottom: 2rem;
+    }
+
+    #product .product .features{
+        margin-bottom: 7.5rem;
+    }
+
+    #product .includes-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 7.5rem;
+    }
+
+    #product h3{
+        margin-bottom: 0;
+    }
+
+    #product .includes-container h3{
+        grid-column: 0 / 1;
+    }
+
+    #product .includes-container .includes-wrapper{
+        grid-column: 2 / 3;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #product .includes-container .includes-wrapper .includes{
+        margin-bottom: 0;
+    }
+
+    #product .product .gallery{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+            "desktop-img-1 desktop-img-3"
+            "desktop-img-2 desktop-img-3";
+        row-gap: 1.25rem;
+        margin-bottom: 7.5rem;
+    }
+
+    #product .product .gallery .tablet-img.img-1{
+        display: none;
+    }
+
+    #product .product .gallery .tablet-img.img-2{
+        display: none;
+    }
+
+    #product .product .gallery .tablet-img.img-3{
+        display: none;
+    }
+
+    #product .product .gallery .desktop-img.img-1{
+        display: block;
+        width: 445px;
+        grid-area: desktop-img-1;
+    }
+
+    #product .product .gallery .desktop-img.img-2{
+        display: block;
+        width: 445px;
+        grid-area: desktop-img-2;
+    }
+
+    #product .product .gallery .desktop-img.img-3{
+        display: block;
+        width: 635px;
+        grid-area: desktop-img-3;
+    }
+    
+    #product .product h4{
+        font-size: 2rem;
+        letter-spacing: 0.0714375rem;
+        margin-bottom: 3.5rem;
+    }
+
+    #product .product .others-container{
+        display: flex;
+        align-items: center;
+        margin-bottom: 10.75rem;
+        gap: 0.6875rem;
+    }
+
+    #product .product .others-container .others{
+        margin: 0;
+    }
+
+    #product .product .others-container .others .tablet-img{
+        display: none;
+    }
+
+    #product .product .others-container .others .desktop-img{
+        display: block;
+        width: 100%;
+        margin-bottom: 2.5rem;
+        border-radius: 8px;
+    }
+
+    #product .product .others-container .others .name{
+        line-height: normal;
+    }
+
+    #features-includes {
+        display: flex;
+        flex-direction: row;
+        gap: 7.5rem
+    }
+
+    #features-includes .features-container {
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+    }
+
+    #features-includes .includes-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 25%;
+    }
+}

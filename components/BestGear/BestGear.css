@@ -48,17 +48,25 @@
 @media (min-width: 1024px){
     #best-gear{
         margin: 6rem 0;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        gap: 5rem;
     }
-
+    
     #best-gear .tablet-img{
-        width: 100%;
-        border-radius: 8px;
-        margin-bottom: 4rem;
+        display: none;
     }
-
-    #best-gear .title{
-    font-size: 2.5rem;
-    line-height: 2.75rem; /* 110% */
-    letter-spacing: 0.0893125rem;
+    
+    #best-gear .desktop-img {
+        width: 50%;
+        border-radius: 8px;
+        display: block;
+    }
+    
+    #best-gear-info{
+        width: 50%;
     }
 }

@@ -1,268 +1,266 @@
-import React, {useState, useEffect} from "react"
-import {NavLink, useOutletContext, useParams} from "react-router-dom"
+import React, { useState, useEffect } from "react";
+import { NavLink, useOutletContext, useParams } from "react-router-dom";
 
-import {getProduct} from "../../api"
+import { getProduct } from "../../api";
 
-import Category from "../../components/Category/Category.jsx"
-import BestGear from "../../components/BestGear/BestGear.jsx"
+import Category from "../../components/Category/Category.jsx";
+import BestGear from "../../components/BestGear/BestGear.jsx";
 
-import "./Product.css"
+import "./Product.css";
 
-export default function Product(){
-    const {handleCart} = useOutletContext()
-    const [product, setProduct] = useState(null)
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(null)
-    const {id} = useParams()
-    const [quantity, setQuantity] = useState(1)
+export default function Product() {
+  const { handleCart } = useOutletContext();
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const { id } = useParams();
+  const [quantity, setQuantity] = useState(1);
 
-    function addQuantity(){
-        setQuantity(setQuantity => setQuantity+1)
+  function addQuantity() {
+    setQuantity((setQuantity) => setQuantity + 1);
+  }
+
+  function subtractQuantity() {
+    setQuantity((setQuantity) => setQuantity - 1);
+  }
+
+  const subtractButtonStyles =
+    quantity === 1 ? { cursor: "not-allowed" } : null;
+  const addButtonStyles = quantity === 5 ? { cursor: "not-allowed" } : null;
+
+  useEffect(() => {
+    async function loadProducts() {
+      setLoading(true);
+      try {
+        const data = await getProduct(id);
+        setProduct(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
     }
 
-    function subtractQuantity(){
-        setQuantity(setQuantity => setQuantity-1)
-    }
+    loadProducts();
+  }, [id]);
 
-    const subtractButtonStyles = quantity === 1 ? {cursor: "not-allowed"} : null
-    const addButtonStyles = quantity === 5 ? {cursor: "not-allowed"} : null
+  if (loading) {
+    return <p className="issue">Loading...</p>;
+  }
 
-    useEffect(() => {
-        async function loadProducts(){
-            setLoading(true)
-            try{
-                const data = await getProduct(id)
-                setProduct(data)
-            }catch(err){
-                setError(err)
-            }finally{
-                setLoading(false)
-            }
-        }
+  if (error) {
+    return <p className="issue">There was an error: {error.message}</p>;
+  }
 
-        loadProducts()
-    }, [id])
+  const includesElement = product
+    ? product.includes.map((includesInfo, index) => {
+        return (
+          <div key={index} className="includes">
+            <p className="quantity">{includesInfo.quantity}x</p>
 
-    if(loading){
-        return <p className="issue">Loading...</p>
-    }
-    
-    if(error){
-        return <p className="issue">There was an error: {error.message}</p>
-    }
+            <p className="item">{includesInfo.item}</p>
+          </div>
+        );
+      })
+    : null;
 
-    const includesElement = product ? product.includes.map((includesInfo, index) => {
-        return(
-            <div key={index} className="includes">
-                <p className="quantity">
-                    {includesInfo.quantity}x
-                </p>
+  const formattedFeatures = product
+    ? product.features.replace(/\.([^ ])/g, ".<br><br>$1")
+    : null;
 
-                <p className="item">
-                    {includesInfo.item}
-                </p>
-            </div>
-        )
-    }) : null
+  const othersElement = product
+    ? product.others.map((othersInfo, index) => {
+        return (
+          <div key={index} className="others">
+            <img
+              src={`../.${othersInfo.image.mobile}`}
+              alt={othersInfo.slug}
+              className="mobile-img"
+            />
 
-    const formattedFeatures = product ? product.features.replace(/\.([^ ])/g, '.<br><br>$1') : null
+            <img
+              src={`../.${othersInfo.image.tablet}`}
+              alt={othersInfo.slug}
+              className="tablet-img"
+            />
 
-    const othersElement = product ? product.others.map((othersInfo, index) => {
-        return(
-            <div key={index} className="others">
-                <img 
-                    src={`../.${othersInfo.image.mobile}`} 
-                    alt={othersInfo.slug}
-                    className="mobile-img" 
-                />
+            <img
+              src={`../.${othersInfo.image.desktop}`}
+              alt={othersInfo.slug}
+              className="desktop-img"
+            />
 
-                <img 
-                    src={`../.${othersInfo.image.tablet}`} 
-                    alt={othersInfo.slug}
-                    className="tablet-img" 
-                />
+            <p className="name">{othersInfo.name}</p>
 
-                <img 
-                    src={`../.${othersInfo.image.desktop}`} 
-                    alt={othersInfo.slug}
-                    className="desktop-img" 
-                />
-
-                <p className="name">
-                    {othersInfo.name}
-                </p>
-
-                <NavLink to={`../${othersInfo.category}/${othersInfo.slug}`}>
-                    <button className="button-1">
-                        SEE PRODUCT
-                    </button>
-                </NavLink>
-            </div>
-        )
-    }) : null
-
-    return(
-        <div id="product">
-            <NavLink
-                to={`..`}
-                relative="path"
-                className="go-back"
-            >
-                Go Back
+            <NavLink to={`../${othersInfo.category}/${othersInfo.slug}`}>
+              <button className="button-1">SEE PRODUCT</button>
             </NavLink>
+          </div>
+        );
+      })
+    : null;
 
-            {product && (
-                <div className="product">
-                    <div className="image-info">
-                        <div className="image">
-                            <img 
-                                src={`../.${product.image.mobile}`}
-                                alt={product.name} 
-                                className="mobile-img"
-                            />
+  return (
+    <div id="product">
+      <NavLink to={`..`} relative="path" className="go-back">
+        Go Back
+      </NavLink>
 
-                            <img 
-                                src={`../.${product.image.tablet}`} 
-                                alt={product.name}
-                                className="tablet-img" 
-                            />
+      {product && (
+        <div className="product">
+          <div className="image-info">
+            <div className="image">
+              <img
+                src={`../.${product.image.mobile}`}
+                alt={product.name}
+                className="mobile-img"
+              />
 
-                            <img 
-                                src={`../.${product.image.desktop}`} 
-                                alt={product.name}
-                                className="desktop-img" 
-                            />
-                        </div>
+              <img
+                src={`../.${product.image.tablet}`}
+                alt={product.name}
+                className="tablet-img"
+              />
 
-                        <div className="info">
-                            {product.new ? <p className="overline">NEW PRODUCT</p> : null}
+              <img
+                src={`../.${product.image.desktop}`}
+                alt={product.name}
+                className="desktop-img"
+              />
+            </div>
 
-                            <h1 className="name">{product.name}<span> {product.category}</span></h1>
+            <div className="info">
+              {product.new ? <p className="overline">NEW PRODUCT</p> : null}
 
-                            <p className="desc">{product.description}</p>
+              <h1 className="name">
+                {product.name}
+                <span> {product.category}</span>
+              </h1>
 
-                            <p className="price">$ {product.price.toLocaleString()}</p>
+              <p className="desc">{product.description}</p>
 
-                            <div className="numbers-container">
-                                <div className="numbers-default">
-                                    <button
-                                        onClick={subtractQuantity}
-                                        disabled={quantity === 1}
-                                        style={subtractButtonStyles}
-                                    >
-                                        -
-                                    </button>
+              <p className="price">$ {product.price.toLocaleString()}</p>
 
-                                    <p className="quantity">{quantity}</p>
+              <div className="numbers-container">
+                <div className="numbers-default">
+                  <button
+                    onClick={subtractQuantity}
+                    disabled={quantity === 1}
+                    style={subtractButtonStyles}
+                  >
+                    -
+                  </button>
 
-                                    <button 
-                                        onClick={addQuantity}
-                                        disabled={quantity === 5}
-                                        style={addButtonStyles}
-                                    >
-                                        +
-                                    </button>   
-                                </div>
+                  <p className="quantity">{quantity}</p>
 
-                                <button 
-                                    className="button-1"
-                                    onClick={() => handleCart(
-                                        product.slug,
-                                        product.cart,
-                                        product.price,
-                                        quantity
-                                    )}
-                                >
-                                    ADD TO CART
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h2>FEATURES</h2>
-
-                    <p 
-                        dangerouslySetInnerHTML={{__html: formattedFeatures}}
-                        className="features"
-                    >
-                    </p>
-
-                    <div className="includes-container">
-                        <h3>IN THE BOX</h3>
-
-                        <div className="includes-wrapper">
-                            {includesElement}
-                        </div>
-                    </div>
-
-                    <div className="gallery">
-                        <img 
-                            src={`../.${product.gallery.first.mobile}`} 
-                            alt="Man wearing headphones looking to the side"
-                            className="mobile-img img-1" 
-                        />
-
-                        <img 
-                            src={`../.${product.gallery.first.tablet}`} 
-                            alt="Man wearing headphones looking to the side"
-                            className="tablet-img img-1" 
-                        />
-
-                        <img 
-                            src={`../.${product.gallery.first.desktop}`} 
-                            alt="Man wearing headphones looking to the side"
-                            className="desktop-img img-1" 
-                        />
-
-                        <img 
-                            src={`../.${product.gallery.second.mobile}`} 
-                            alt="Headphones on table"
-                            className="mobile-img img-2" 
-                        />
-
-                        <img 
-                            src={`../.${product.gallery.second.tablet}`} 
-                            alt="Headphones on table"
-                            className="tablet-img img-2" 
-                        />
-
-                        <img 
-                            src={`../.${product.gallery.second.desktop}`} 
-                            alt="Headphones on table"
-                            className="desktop-img img-2" 
-                        />
-
-                        <img 
-                            src={`../.${product.gallery.third.mobile}`} 
-                            alt="Headphones earcups"
-                            className="mobile-img img-3" 
-                        />
-
-                        <img 
-                            src={`../.${product.gallery.third.tablet}`} 
-                            alt="Headphones earcups"
-                            className="tablet-img img-3" 
-                        />
-
-                        <img 
-                            src={`../.${product.gallery.third.desktop}`} 
-                            alt="Headphones earcups"
-                            className="desktop-img img-3" 
-                        />
-                    </div>
-
-                    <h4>YOU MAY ALSO LIKE</h4>
-                    
-                    <div className="others-container">
-                        {othersElement}
-                    </div>
-
+                  <button
+                    onClick={addQuantity}
+                    disabled={quantity === 5}
+                    style={addButtonStyles}
+                  >
+                    +
+                  </button>
                 </div>
-            )}
 
-            <Category />
+                <button
+                  className="button-1"
+                  onClick={() =>
+                    handleCart(
+                      product.slug,
+                      product.cart,
+                      product.price,
+                      quantity
+                    )
+                  }
+                >
+                  ADD TO CART
+                </button>
+              </div>
+            </div>
+          </div>
 
-            <BestGear />
+          <div id="features-includes">
+            <div className="features-container">
+              <h2>FEATURES</h2>
+
+              <p
+                dangerouslySetInnerHTML={{ __html: formattedFeatures }}
+                className="features"
+              ></p>
+            </div>
+
+            <div className="includes-container">
+              <h3>IN THE BOX</h3>
+
+              <div className="includes-wrapper">{includesElement}</div>
+            </div>
+          </div>
+
+          <div className="gallery">
+            <img
+              src={`../.${product.gallery.first.mobile}`}
+              alt="Man wearing headphones looking to the side"
+              className="mobile-img img-1"
+            />
+
+            <img
+              src={`../.${product.gallery.first.tablet}`}
+              alt="Man wearing headphones looking to the side"
+              className="tablet-img img-1"
+            />
+
+            <img
+              src={`../.${product.gallery.first.desktop}`}
+              alt="Man wearing headphones looking to the side"
+              className="desktop-img img-1"
+            />
+
+            <img
+              src={`../.${product.gallery.second.mobile}`}
+              alt="Headphones on table"
+              className="mobile-img img-2"
+            />
+
+            <img
+              src={`../.${product.gallery.second.tablet}`}
+              alt="Headphones on table"
+              className="tablet-img img-2"
+            />
+
+            <img
+              src={`../.${product.gallery.second.desktop}`}
+              alt="Headphones on table"
+              className="desktop-img img-2"
+            />
+
+            <img
+              src={`../.${product.gallery.third.mobile}`}
+              alt="Headphones earcups"
+              className="mobile-img img-3"
+            />
+
+            <img
+              src={`../.${product.gallery.third.tablet}`}
+              alt="Headphones earcups"
+              className="tablet-img img-3"
+            />
+
+            <img
+              src={`../.${product.gallery.third.desktop}`}
+              alt="Headphones earcups"
+              className="desktop-img img-3"
+            />
+          </div>
+
+          <h4>YOU MAY ALSO LIKE</h4>
+
+          <div className="others-container">{othersElement}</div>
         </div>
-    )
+      )}
+
+      <Category />
+
+      <BestGear />
+    </div>
+  );
 }

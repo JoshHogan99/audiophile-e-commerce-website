@@ -56,3 +56,31 @@
         border-radius: 8px;
     }
 }
+
+@media (min-width: 1024px) {
+    #products{
+        padding: 0 10rem 2.5rem;
+    }
+
+    #products .category{
+        padding: 6.3125rem 2.5rem;
+        margin: 0 calc(-10rem);
+        justify-content: space-around;
+    }
+
+    #products h1{
+        font-size: 2.5rem;
+        line-height: 2.75rem; /* 110% */
+        letter-spacing: 0.0893125rem;
+    }
+
+    #products .tablet-img{
+        display: none;
+    }
+    
+    #products .desktop-img{
+        display: block;
+        border-radius: 8px;
+        width: 50%;
+    }
+}
