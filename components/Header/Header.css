@@ -61,6 +61,10 @@ header .nav a{
     display: block;
 }
 
+#navlinks {
+    display: none;
+}
+
 @media (min-width: 768px){
     header{
         justify-content: unset;
@@ -70,7 +74,7 @@ header .nav a{
         margin-right: 2.625rem;
     }
 
-    header .cart{
+    header #cart-container{
         margin-left: auto;
     }
 
@@ -98,7 +102,12 @@ header .nav a{
         gap: 1.5rem
     }
 
-    header .cart {
+    header #cart-container {
         margin-left: 0;
+    }
+
+    #cart-container {
+        position: relative;
+        right: 0;
     }
 }

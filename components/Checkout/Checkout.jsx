@@ -367,7 +367,7 @@ export default function Checkout() {
             </div>
           ) : null}
 
-          <NavLink to="/">
+          <NavLink to="/" onClick={handleCheckout}>
             <button className="button-1">BACK TO HOME</button>
           </NavLink>
         </div>

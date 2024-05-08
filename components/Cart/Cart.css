@@ -1,15 +1,15 @@
 #cart{
-    position: fixed;
-    z-index: 10;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background: #fff;
     border-radius: 8px;
     padding: 2rem 1.75rem;
-    width: 327px;
-    max-height: 80%;
-    overflow: scroll;
+    min-width: 327px;
+    max-width: 377px;
+    max-height: 488px;
+    position: absolute;
+    overflow: auto;
+    top: calc(100% + 1rem);
+    right: 0;
+    z-index: 10;
 }
 
 #cart .heading{
@@ -92,16 +92,25 @@
     width: 100%;
 }
 
-@media (min-width: 768px){
-    #cart{
-        top: 12%;
-        left: 54%;
-        transform: none;
+@media (max-width: 767px){
+    #cart {
+        left: 50%;
+        transform: translate(-50%);
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px){
     #cart{
-        left: 66.2%;
+        top: calc(100% + 2rem);
+        right: 1.5rem;
+        left: auto;
+    }
+}
+
+@media (min-width: 1024px){
+    #cart{
+        top: calc(100% + 4rem);
+        right: 0;
+        left: auto;
     }
 }

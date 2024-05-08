@@ -70,12 +70,24 @@ export default function Header({
         </NavLink>
       </div>
 
-      <img
-        src={cartIcon}
-        className="cart"
-        alt="Cart Icon"
-        onClick={handleCart}
-      />
+      <div id="cart-container">
+        <img
+          src={cartIcon}
+          className="cart"
+          alt="Cart Icon"
+          onClick={handleCart}
+        />
+
+        {showCart && (
+          <Cart
+            handleCart={handleCart}
+            cartItems={cartItems}
+            cartTotal={cartTotal}
+            setQuantity={setQuantity}
+            handleCartClear={handleCartClear}
+          />
+        )}
+      </div>
 
       {showNav && <div className="page-overlay-nav" onClick={handleNav}></div>}
 
@@ -84,16 +96,6 @@ export default function Header({
       </div>
 
       {showCart && <div className="page-overlay" onClick={handleCart}></div>}
-
-      {showCart && (
-        <Cart
-          handleCart={handleCart}
-          cartItems={cartItems}
-          cartTotal={cartTotal}
-          setQuantity={setQuantity}
-          handleCartClear={handleCartClear}
-        />
-      )}
     </header>
   );
 }

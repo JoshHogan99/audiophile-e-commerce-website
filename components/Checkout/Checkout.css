@@ -423,12 +423,15 @@
     }
 
     #checkout .form {
-        width: 730px;
+        width: 100%;
+        margin-top: 2rem;
     }
 
     #checkout .summary {
-        width: 350px;
-        height: 612px;
+        min-width: 350px;
+        height: 100%;
+        margin-top: 2rem;
+        margin-left: 2rem;
     }
 
     #checkout-flex {
